@@ -16,7 +16,7 @@
 | D-04 | Feedback collection via console.log — no file write | Phase 0 | Architecture |
 | D-05 | Generous keyword matching with priority order | Phase 2 | AI / Logic |
 | D-06 | Category diversity enforced in code, not in LLM prompt | Phase 4 | AI / Logic |
-| D-07 | Third blinkit_category added for healthy_snacking dataset | Phase 4 | Data |
+| D-07 | Real third blinkit_category added for healthy_snacking dataset | Phase 4 | Data |
 | D-08 | Unicode escape sequences for special characters in JSON | Phase 4 | Data |
 | D-09 | Two-pass recommendation selection (LLM rank + code fallback) | Phase 4 | AI / Logic |
 | D-10 | LLM model: llama-3.3-70b-versatile via Groq | Phase 4 | AI / Infra |
@@ -168,26 +168,24 @@ After the LLM responds, the code iterates the ranked list in order and maintains
 
 ---
 
-### D-07 — Third blinkit_category Added for healthy_snacking Dataset
+### D-07 — Real third blinkit_category Added for healthy_snacking Dataset
 
 **Phase:** 4 — Data fix  
 **Category:** Data  
 **Status:** Active
 
 **Decision:**  
-Added **RiteBite Max Protein Bar** (`product_id: ritebite_max_protein_bar`) to `data/products.json` under `blinkit_category: "Health & Wellness"` with `goal_tags: ["healthy_snacking"]`.
+Added **MuscleBlaze Whey Protein** (`product_id: muscleblaze_whey_protein`) to `data/products.json` under `blinkit_category: "Health & Pharma"` with `goal_tags: ["healthy_snacking"]`. Also moved **RiteBite Max Protein Bar** back to `Snacks & Drinks`.
 
 **Reason:**  
-The original `healthy_snacking` products only spanned 2 distinct `blinkit_category` values (`Snacks & Drinks`, `Grocery & Kitchen`). The code-level category diversity filter (D-06) could never produce 3 diverse recommendations from only 2 categories. A third category was required in the data layer.
+The original `healthy_snacking` products only spanned 2 distinct `blinkit_category` values (`Snacks & Drinks`, `Grocery & Kitchen`). An initial fix attempted to add RiteBite under `Health & Wellness`, but that is not a real Blinkit category. To properly test cross-category discovery, a genuine third Blinkit category (`Health & Pharma`) was required.
 
 **Category coverage after fix:**
 
 | Goal | blinkit_categories covered |
 |------|---------------------------|
-| `healthy_snacking` | Snacks & Drinks, Grocery & Kitchen, Health & Wellness |
-| `better_skin` | Beauty & Personal Care, Snacks & Drinks |
-
-**Note:** `better_skin` has only 2 distinct top-level categories in the current dataset (Amla juice and Ragi crackers share `Snacks & Drinks`). This is sufficient for now because the `better_skin` product set covers the 3 required recommendations. Monitor during testing.
+| `healthy_snacking` | Snacks & Drinks, Grocery & Kitchen, Health & Pharma |
+| `better_skin` | Beauty & Personal Care, Snacks & Drinks, Grocery & Kitchen |
 
 ---
 

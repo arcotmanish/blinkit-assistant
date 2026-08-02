@@ -230,8 +230,8 @@
     "product_id": "ritebite_max_protein_bar",
     "name": "Max Protein Bar \u2013 Choco Slim",
     "brand": "RiteBite",
-    "blinkit_category": "Health & Wellness",
-    "blinkit_subcategory": "Protein & Nutrition",
+    "blinkit_category": "Snacks & Drinks",
+    "blinkit_subcategory": "Chips & Namkeen",
     "price_inr": 85,
     "weight_or_pack": "67g",
     "price_per_unit": "\u20B9127/100g",
@@ -288,5 +288,39 @@
     "fragrance_free": true,
     "dermatologist_tested": false,
     "moisturization_level": "N/A \u2014 dietary product, not topical"
+  },
+  {
+    "product_id": "muscleblaze_whey_protein",
+    "name": "Whey Protein \u2013 Raw Chocolate",
+    "brand": "MuscleBlaze",
+    "blinkit_category": "Health & Pharma",
+    "blinkit_subcategory": "Protein Supplements",
+    "price_inr": 299,
+    "weight_or_pack": "250g (10 servings)",
+    "price_per_unit": "\u20B929.9/serving",
+    "goal_tags": ["healthy_snacking"],
+    "filter_tags": ["high_protein", "low_sugar", "no_maida"],
+    "compare_tags": ["protein shake", "whey protein", "meal replacement"],
+    "benefits": [
+      "25g protein per serving",
+      "Low in sugar",
+      "Keeps you full between meals",
+      "Supports muscle recovery"
+    ],
+    "ingredients_highlights": [
+      "Whey Protein Concentrate",
+      "Cocoa Powder",
+      "No artificial sweetener",
+      "Low fat"
+    ],
+    "nutrition_per_serving": {
+      "calories": "120 kcal",
+      "protein_g": "25g",
+      "carbs_g": "4g",
+      "sugar_g": "2g",
+      "fibre_g": "0g",
+      "fat_g": "1.5g"
+    },
+    "allergens": ["Milk", "Gluten"]
   }
 ]
