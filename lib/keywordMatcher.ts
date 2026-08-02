@@ -5,7 +5,8 @@ const BETTER_SKIN_KEYWORDS = [
   "oily skin", "face", "serum", "moisturiser", "moisturizer", "lotion", "complexion",
   "fairness", "brightening", "hydration", "radiant", "blemish", "pigmentation",
   "vitamin c", "spf", "sunscreen", "toner", "cleanse", "cleanser", "dermatologist",
-  "beauty", "skinroutine", "skin routine", "nourish skin", "clear skin"
+  "beauty", "skinroutine", "skin routine", "nourish skin", "clear skin",
+  "improve", "improve my skin", "improving"
 ];
 
 const HEALTHY_SNACKING_KEYWORDS = [

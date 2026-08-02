@@ -35,18 +35,29 @@ body {
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   border-left: 1px solid var(--border-color);
   border-right: 1px solid var(--border-color);
+  padding-bottom: 70px; /* Space for bottom nav */
 }
 
-/* Base button styles */
+/* Base element styles */
 button {
   font-family: inherit;
   cursor: pointer;
   border: none;
   outline: none;
   transition: all 0.2s ease;
+  background: transparent;
 }
 
 input {
   font-family: inherit;
   outline: none;
+}
+
+/* Hide scrollbar for horizontally scrolling elements */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

@@ -19,7 +19,7 @@ export default function FilterRow({ goalId, onSubmitFilters }: FilterRowProps) {
   } else if (goalId === 'better_skin') {
     availableFilters = [
       { id: 'no_paraben', label: 'No Paraben' },
-      { id: 'fragrance_free', label: 'Fragrance Free' }
+      { id: 'fragrance_free', label: 'Fragrance free' }
     ];
   }
 
@@ -37,18 +37,8 @@ export default function FilterRow({ goalId, onSubmitFilters }: FilterRowProps) {
   };
 
   return (
-    <div style={{
-      backgroundColor: 'var(--bg-card)',
-      padding: '16px',
-      borderRadius: 'var(--radius-default)',
-      border: '1px solid var(--border-color)',
-      marginBottom: '24px'
-    }}>
-      <div style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-        Refine your recommendations
-      </div>
-
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+    <div style={{ marginBottom: '24px' }}>
+      <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
         {availableFilters.map(filter => {
           const isSelected = selectedFilters.includes(filter.id);
           return (
@@ -56,13 +46,14 @@ export default function FilterRow({ goalId, onSubmitFilters }: FilterRowProps) {
               key={filter.id}
               onClick={() => toggleFilter(filter.id)}
               style={{
-                padding: '8px 16px',
+                padding: '10px 20px',
                 borderRadius: '24px',
-                fontSize: '13px',
-                fontWeight: 500,
-                backgroundColor: isSelected ? 'var(--color-primary)' : 'transparent',
-                color: isSelected ? '#fff' : 'var(--text-primary)',
-                border: `1px solid ${isSelected ? 'var(--color-primary)' : 'var(--border-color)'}`,
+                fontSize: '14px',
+                fontWeight: 400,
+                backgroundColor: isSelected ? 'rgba(0, 177, 64, 0.1)' : 'transparent',
+                color: isSelected ? 'var(--color-primary)' : '#d0d0d0',
+                border: `1px solid ${isSelected ? 'var(--color-primary)' : '#444'}`,
+                transition: 'all 0.2s ease'
               }}
             >
               {filter.label}
@@ -76,19 +67,20 @@ export default function FilterRow({ goalId, onSubmitFilters }: FilterRowProps) {
           type="text"
           value={freeText}
           onChange={(e) => setFreeText(e.target.value)}
-          placeholder="Anything else? Type a preference…"
+          placeholder="Anything else? Type a preference.."
           style={{
             width: '100%',
-            padding: '12px',
-            backgroundColor: 'var(--bg-main)',
-            border: '1px solid var(--border-color)',
-            borderRadius: '8px',
+            padding: '16px',
+            backgroundColor: '#1c1c1c', // Match the dark grey input box
+            border: '1px solid #333',
+            borderRadius: '12px',
             color: 'var(--text-primary)',
-            fontSize: '14px',
+            fontSize: '15px',
             marginBottom: '16px'
           }}
         />
 
+        {/* Hidden or subtle submit button - we'll keep it but style it nicely */}
         <button
           type="submit"
           style={{
@@ -96,9 +88,9 @@ export default function FilterRow({ goalId, onSubmitFilters }: FilterRowProps) {
             padding: '16px',
             backgroundColor: 'var(--color-primary)',
             color: '#fff',
-            borderRadius: '8px',
+            borderRadius: '12px',
             fontSize: '16px',
-            fontWeight: 600,
+            fontWeight: 700,
           }}
         >
           Find Products

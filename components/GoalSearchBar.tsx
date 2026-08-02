@@ -10,8 +10,8 @@ export default function GoalSearchBar({ isAiMode, onGoalDetected }: GoalSearchBa
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (!isAiMode) return;
     if (!query.trim()) return;
 
@@ -41,7 +41,7 @@ export default function GoalSearchBar({ isAiMode, onGoalDetected }: GoalSearchBa
 
   return (
     <div style={{ marginBottom: '24px' }}>
-      <form onSubmit={handleSubmit} style={{ position: 'relative' }}>
+      <form onSubmit={handleSubmit} style={{ position: 'relative', display: 'flex' }}>
         <input
           type="text"
           value={query}
@@ -50,26 +50,45 @@ export default function GoalSearchBar({ isAiMode, onGoalDetected }: GoalSearchBa
           disabled={!isAiMode || isLoading}
           style={{
             width: '100%',
-            padding: '16px 48px 16px 16px',
-            backgroundColor: 'var(--bg-card)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-default)',
+            padding: '14px 48px 14px 16px',
+            backgroundColor: '#262626', /* Darker grey to match image */
+            border: 'none',
+            borderRadius: '16px', /* Larger radius as per image */
             color: 'var(--text-primary)',
-            fontSize: '16px',
+            fontSize: '15px',
             opacity: (!isAiMode || isLoading) ? 0.7 : 1,
             transition: 'opacity 0.2s'
           }}
         />
-        {/* Search icon placeholder */}
-        <div style={{
-          position: 'absolute',
-          right: '16px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          color: 'var(--text-secondary)'
-        }}>
-          {isLoading ? '⏳' : '🔍'}
-        </div>
+        <button
+          type="button"
+          onClick={(e) => handleSubmit(e as unknown as React.FormEvent)}
+          disabled={!isAiMode || isLoading}
+          style={{
+            position: 'absolute',
+            right: '8px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            color: 'var(--text-secondary)',
+            width: '40px',
+            height: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'transparent',
+            border: 'none',
+            cursor: (!isAiMode || isLoading) ? 'default' : 'pointer'
+          }}
+        >
+          {isLoading ? (
+            <span style={{ fontSize: '18px' }}>⏳</span>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          )}
+        </button>
       </form>
       
       {errorMsg && (

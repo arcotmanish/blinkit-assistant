@@ -13,8 +13,9 @@ export default function AssistantToggleCard({ isAiMode, onToggle }: AssistantTog
       padding: '12px 16px',
       backgroundColor: 'var(--bg-card)',
       borderRadius: 'var(--radius-default)',
-      border: '1px solid var(--border-color)',
+      border: `1px solid ${isAiMode ? 'rgba(0, 177, 64, 0.2)' : 'var(--border-color)'}`,
       marginBottom: '16px',
+      transition: 'border-color 0.3s'
     }}>
       {/* Custom toggle switch */}
       <label style={{
@@ -29,7 +30,7 @@ export default function AssistantToggleCard({ isAiMode, onToggle }: AssistantTog
           type="checkbox" 
           checked={isAiMode}
           onChange={(e) => onToggle(e.target.checked)}
-          style={{ opacity: 0, width: 0, height: 0 }}
+          style={{ opacity: 0, width: 0, height: 0, margin: 0, padding: 0 }}
         />
         <span style={{
           position: 'absolute',
@@ -48,7 +49,7 @@ export default function AssistantToggleCard({ isAiMode, onToggle }: AssistantTog
             width: '18px',
             left: '3px',
             bottom: '3px',
-            backgroundColor: 'white',
+            backgroundColor: '#fff',
             transition: '.3s',
             borderRadius: '50%',
             transform: isAiMode ? 'translateX(20px)' : 'translateX(0)'
@@ -59,9 +60,10 @@ export default function AssistantToggleCard({ isAiMode, onToggle }: AssistantTog
       <span style={{
         fontSize: '15px',
         fontWeight: 600,
-        color: isAiMode ? 'var(--color-primary)' : 'var(--text-primary)'
+        color: isAiMode ? 'var(--color-primary)' : 'var(--text-primary)',
+        transition: 'color 0.3s'
       }}>
-        Blinkit Assistant {isAiMode && '✨'}
+        Blinkit Assistant ✨
       </span>
     </div>
   );
