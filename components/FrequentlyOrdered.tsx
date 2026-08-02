@@ -22,7 +22,7 @@ export default function FrequentlyOrdered() {
       >
         {products.map(product => (
           <div key={product.id} style={{
-            flex: '0 0 130px', // Slightly narrower fixed width
+            flex: '0 0 115px', // Narrower to prevent horizontal stretching
             backgroundColor: 'var(--bg-card)',
             borderRadius: '12px',
             padding: '8px',
@@ -32,13 +32,13 @@ export default function FrequentlyOrdered() {
           }}>
             <div style={{
               width: '100%',
-              height: '84px',
+              height: '76px', // Smaller height to maintain closer to square aspect ratio
               backgroundColor: '#111',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '32px',
+              fontSize: '28px',
               marginBottom: '8px'
             }}>
               {product.icon}
@@ -49,21 +49,21 @@ export default function FrequentlyOrdered() {
             </div>
             
             <div style={{ 
-              fontSize: '13px', 
+              fontSize: '12px', // Smaller font for narrower card
               fontWeight: 500, 
               color: '#fff',
-              marginBottom: '16px',
+              marginBottom: '12px',
               display: '-webkit-box',
               WebkitLineClamp: 2,
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden',
-              height: '32px' // Enforce consistent height for 2 lines
+              height: '30px' // Enforce consistent height for 2 lines
             }}>
               {product.name}
             </div>
             
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
-              <div style={{ fontSize: '15px', fontWeight: 600 }}>
+              <div style={{ fontSize: '13px', fontWeight: 600 }}>
                 ₹{product.price}
               </div>
               
@@ -71,13 +71,13 @@ export default function FrequentlyOrdered() {
                 <div style={{
                   backgroundColor: 'var(--color-primary)',
                   color: '#fff',
-                  padding: '6px 12px',
-                  borderRadius: '6px',
-                  fontSize: '14px',
+                  padding: '4px 8px',
+                  borderRadius: '4px',
+                  fontSize: '12px',
                   fontWeight: 600,
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px'
+                  gap: '6px'
                 }}>
                   <span>-</span>
                   <span>{product.quantity}</span>
@@ -88,9 +88,9 @@ export default function FrequentlyOrdered() {
                   border: '1px solid var(--color-primary)',
                   color: 'var(--color-primary)',
                   backgroundColor: 'transparent',
-                  padding: '6px 16px',
-                  borderRadius: '6px',
-                  fontSize: '12px',
+                  padding: '4px 12px',
+                  borderRadius: '4px',
+                  fontSize: '11px',
                   fontWeight: 700,
                   textTransform: 'uppercase'
                 }}>

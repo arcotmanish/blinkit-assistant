@@ -89,6 +89,41 @@ export default function Home() {
           <>
             <ShopByCategory />
             <FrequentlyOrdered />
+            
+            {/* Promo Banner to fill the remaining visual space on mobile */}
+            <div style={{ marginBottom: '24px' }}>
+              <div style={{
+                width: '100%',
+                height: '100px',
+                backgroundColor: 'rgba(0, 177, 64, 0.1)',
+                borderRadius: '16px',
+                border: '1px solid rgba(0, 177, 64, 0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '16px 20px',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{ zIndex: 1 }}>
+                  <div style={{ fontSize: '18px', fontWeight: 800, color: '#fff', marginBottom: '4px' }}>Mega Sale</div>
+                  <div style={{ fontSize: '13px', color: 'var(--color-primary)', fontWeight: 600 }}>Up to 50% OFF</div>
+                </div>
+                <div style={{ fontSize: '48px', zIndex: 1, filter: 'grayscale(0.2)' }}>🛒</div>
+                
+                {/* Decorative background circle */}
+                <div style={{
+                  position: 'absolute',
+                  right: '-10px',
+                  top: '-20px',
+                  width: '100px',
+                  height: '100px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(0, 177, 64, 0.05)',
+                  zIndex: 0
+                }} />
+              </div>
+            </div>
           </>
         )}
       </div>
