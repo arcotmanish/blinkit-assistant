@@ -10,11 +10,11 @@ export default function AssistantToggleCard({ isAiMode, onToggle }: AssistantTog
     <div style={{
       display: 'flex',
       alignItems: 'center',
-      padding: '12px 16px',
+      padding: '8px 12px',
       backgroundColor: 'var(--bg-card)',
       borderRadius: 'var(--radius-default)',
       border: `1px solid ${isAiMode ? 'rgba(0, 177, 64, 0.2)' : 'var(--border-color)'}`,
-      marginBottom: '16px',
+      marginBottom: '12px',
       transition: 'border-color 0.3s'
     }}>
       {/* Custom toggle switch */}

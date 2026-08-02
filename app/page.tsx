@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <main className="app-container">
       {/* Top Header Placeholder (simulating Blinkit's top bar) */}
-      <div style={{ padding: '16px 16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ padding: '12px 16px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div style={{ fontSize: '20px', fontWeight: 700, marginBottom: '2px' }}>Delivery in 10 minutes</div>
           <div style={{ fontSize: '13px', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px' }}>

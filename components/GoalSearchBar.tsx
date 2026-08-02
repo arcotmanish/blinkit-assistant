@@ -41,7 +41,7 @@ export default function GoalSearchBar({ isAiMode, query, setQuery, onGoalDetecte
   };
 
   return (
-    <div style={{ marginBottom: '24px' }}>
+    <div style={{ marginBottom: '12px' }}>
       <form onSubmit={handleSubmit} style={{ position: 'relative', display: 'flex' }}>
         <input
           type="text"
@@ -51,7 +51,7 @@ export default function GoalSearchBar({ isAiMode, query, setQuery, onGoalDetecte
           disabled={!isAiMode || isLoading}
           style={{
             width: '100%',
-            padding: '14px 48px 14px 16px',
+            padding: '12px 48px 12px 16px',
             backgroundColor: '#262626',
             border: 'none',
             borderRadius: '16px',

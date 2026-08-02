@@ -8,8 +8,8 @@ const products = [
 
 export default function FrequentlyOrdered() {
   return (
-    <div style={{ marginBottom: '32px' }}>
-      <h2 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px' }}>Frequently Ordered</h2>
+    <div style={{ marginBottom: '16px' }}>
+      <h2 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px' }}>Frequently Ordered</h2>
       
       <div 
         className="hide-scrollbar" 
@@ -22,24 +22,24 @@ export default function FrequentlyOrdered() {
       >
         {products.map(product => (
           <div key={product.id} style={{
-            flex: '0 0 140px', // Fixed width for horizontal scrolling
+            flex: '0 0 130px', // Slightly narrower fixed width
             backgroundColor: 'var(--bg-card)',
-            borderRadius: '16px',
-            padding: '12px',
+            borderRadius: '12px',
+            padding: '8px',
             border: '1px solid var(--border-color)',
             display: 'flex',
             flexDirection: 'column',
           }}>
             <div style={{
               width: '100%',
-              aspectRatio: '1/1',
+              height: '84px',
               backgroundColor: '#111',
-              borderRadius: '12px',
+              borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '40px',
-              marginBottom: '12px'
+              fontSize: '32px',
+              marginBottom: '8px'
             }}>
               {product.icon}
             </div>
