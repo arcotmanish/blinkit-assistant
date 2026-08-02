@@ -249,5 +249,44 @@
       "fat_g": "6g"
     },
     "allergens": ["Milk", "Nuts", "Gluten"]
+  },
+  {
+    "product_id": "happilo_premium_almonds",
+    "name": "Premium Californian Almonds",
+    "brand": "Happilo",
+    "blinkit_category": "Grocery & Kitchen",
+    "blinkit_subcategory": "Dry Fruits & Cereals",
+    "price_inr": 199,
+    "weight_or_pack": "200g",
+    "price_per_unit": "\u20B999.5/100g",
+    "goal_tags": ["better_skin"],
+    "filter_tags": ["no_paraben", "fragrance_free"],
+    "compare_tags": ["nuts", "dry fruits", "almonds", "skin superfood"],
+    "benefits": [
+      "Rich in Vitamin E \u2013 a key antioxidant for skin repair",
+      "Supports collagen production and skin elasticity",
+      "Natural source of healthy fats that keep skin moisturised",
+      "Anti-inflammatory properties reduce redness and breakouts"
+    ],
+    "key_active_ingredients": ["Vitamin E", "Healthy Monounsaturated Fats", "Magnesium"],
+    "ingredients_highlights": [
+      "100% natural Californian almonds",
+      "No added salt or oil",
+      "No preservatives"
+    ],
+    "nutrition_per_serving": {
+      "calories": "170 kcal",
+      "protein_g": "6g",
+      "carbs_g": "6g",
+      "sugar_g": "1g",
+      "fibre_g": "3g",
+      "fat_g": "15g"
+    },
+    "allergens": ["Tree Nuts (Almonds)"],
+    "skin_type_suitability": "All skin types \u2014 works from inside out via nutrition",
+    "paraben_free": true,
+    "fragrance_free": true,
+    "dermatologist_tested": false,
+    "moisturization_level": "N/A \u2014 dietary product, not topical"
   }
 ]

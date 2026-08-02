@@ -22,6 +22,7 @@
 | D-10 | LLM model: llama-3.3-70b-versatile via Groq | Phase 4 | AI / Infra |
 | D-11 | Data stored in 3 local JSON files — no database | Phase 1 | Architecture |
 | D-12 | Vanilla CSS — no Tailwind | Phase 0 | Frontend |
+| D-13 | Third blinkit_category added for better_skin dataset | Phase 4 fix | Data |
 
 ---
 
@@ -303,4 +304,38 @@ Design tokens (colours, font sizes, spacing) are defined as CSS custom propertie
 
 ---
 
-*Last updated: Phase 4 completion. Add new entries in chronological order as new decisions are made.*
+*Last updated: Phase 4 fix — better_skin category coverage. Add new entries in chronological order as new decisions are made.*
+
+---
+
+### D-13 — Third blinkit_category Added for better_skin Dataset
+
+**Phase:** 4 fix — Data  
+**Category:** Data  
+**Status:** Active
+
+**Decision:**  
+Added **Happilo Premium Almonds** (`product_id: happilo_premium_almonds`) to `data/products.json` under `blinkit_category: "Grocery & Kitchen"` / `blinkit_subcategory: "Dry Fruits & Cereals"` with `goal_tags: ["better_skin"]`.
+
+**Reason:**  
+The original `better_skin` products only spanned 2 distinct `blinkit_category` values (`Beauty & Personal Care`, `Snacks & Drinks`). The two-pass recommendation filter (D-09) could never fill 3 diverse slots from only 2 categories, causing only 2 products to be returned to the user.
+
+**Why almonds make sense for better_skin:**  
+Almonds are a well-established dietary source of Vitamin E, healthy fats, and magnesium — all linked to skin health from within. This makes the product genuinely relevant to the goal, not just a filler.
+
+**Category coverage after fix:**
+
+| Goal | blinkit_categories covered |
+|------|---------------------------|
+| `healthy_snacking` | Snacks & Drinks, Grocery & Kitchen, Health & Wellness |
+| `better_skin` | Beauty & Personal Care, Snacks & Drinks, Grocery & Kitchen |
+
+**Test result:**  
+After adding Happilo Almonds, the `/api/recommend` endpoint for `better_skin` correctly returns 3 products from 3 different categories:
+- `minimalist_vitc_serum` → Beauty & Personal Care
+- `raw_pressery_amla` → Snacks & Drinks
+- `happilo_premium_almonds` → Grocery & Kitchen
+
+**Rule established for future data additions:**  
+Before adding any new goal to the dataset, verify that products for that goal span **at least 3 distinct `blinkit_category` values** in `products.json`. The category diversity filter requires a minimum of 3 categories to guarantee 3 diverse recommendations.
+
