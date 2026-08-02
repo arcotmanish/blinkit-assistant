@@ -1,0 +1,17 @@
+{
+  "healthy_snacking": {
+    "label": "Healthy Snacking",
+    "primary_categories": ["Chips & Namkeen", "Dry Fruits & Cereals", "Dairy, Bread & Eggs"],
+    "filter_tags": ["high_protein", "low_sugar", "high_fibre", "low_fat", "no_maida"]
+  },
+  "better_skin": {
+    "label": "Better Skin",
+    "primary_categories": ["Skin & Face", "Dry Fruits & Cereals", "Drinks & Juices"],
+    "filter_tags": ["no_paraben", "fragrance_free", "vitamin_c", "dermatologist_tested", "no_sulphate"]
+  },
+  "morning_energy": {
+    "label": "Morning Energy",
+    "primary_categories": ["Dairy, Bread & Eggs", "Dry Fruits & Cereals", "Tea, Coffee & Milk Drinks"],
+    "filter_tags": ["high_protein", "no_added_sugar", "complex_carbs", "high_fibre"]
+  }
+}

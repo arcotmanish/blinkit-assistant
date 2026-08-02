@@ -1,0 +1,17 @@
+[
+  {
+    "user_id": "demo_user_01",
+    "name": "Priya",
+    "preferences": {
+      "budget": "medium",
+      "vegetarian": true
+    },
+    "order_history": [
+      { "product_id": "lays_classic", "category": "Chips & Namkeen", "times_ordered": 6 },
+      { "product_id": "amul_butter", "category": "Dairy, Bread & Eggs", "times_ordered": 4 },
+      { "product_id": "maggi_noodles", "category": "Instant Food", "times_ordered": 3 },
+      { "product_id": "dove_shampoo", "category": "Hair", "times_ordered": 2 },
+      { "product_id": "cetaphil_moisturising_cream", "category": "Skin & Face", "times_ordered": 1 }
+    ]
+  }
+]
