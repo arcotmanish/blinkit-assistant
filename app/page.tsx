@@ -10,12 +10,14 @@ import BottomNav from '@/components/BottomNav';
 
 export default function Home() {
   const [isAiMode, setIsAiMode] = useState(false);
+  const [query, setQuery] = useState('');
   const [detectedGoal, setDetectedGoal] = useState<{ id: string; label: string } | null>(null);
 
   const handleToggleAiMode = (checked: boolean) => {
     setIsAiMode(checked);
     // Reset state when toggling off
     if (!checked) {
+      setQuery('');
       setDetectedGoal(null);
     }
   };
@@ -71,6 +73,8 @@ export default function Home() {
 
         <GoalSearchBar 
           isAiMode={isAiMode} 
+          query={query}
+          setQuery={setQuery}
           onGoalDetected={handleGoalDetected} 
         />
 

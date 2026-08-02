@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 interface GoalSearchBarProps {
   isAiMode: boolean;
+  query: string;
+  setQuery: (val: string) => void;
   onGoalDetected: (goalId: string, goalLabel: string) => void;
 }
 
-export default function GoalSearchBar({ isAiMode, onGoalDetected }: GoalSearchBarProps) {
-  const [query, setQuery] = useState('');
+export default function GoalSearchBar({ isAiMode, query, setQuery, onGoalDetected }: GoalSearchBarProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -22,7 +23,7 @@ export default function GoalSearchBar({ isAiMode, onGoalDetected }: GoalSearchBa
       const res = await fetch('/api/detect-goal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: query }),
+        body: JSON.stringify({ input_text: query }),
       });
 
       const data = await res.json();
@@ -51,9 +52,9 @@ export default function GoalSearchBar({ isAiMode, onGoalDetected }: GoalSearchBa
           style={{
             width: '100%',
             padding: '14px 48px 14px 16px',
-            backgroundColor: '#262626', /* Darker grey to match image */
+            backgroundColor: '#262626',
             border: 'none',
-            borderRadius: '16px', /* Larger radius as per image */
+            borderRadius: '16px',
             color: 'var(--text-primary)',
             fontSize: '15px',
             opacity: (!isAiMode || isLoading) ? 0.7 : 1,
