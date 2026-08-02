@@ -225,5 +225,29 @@
     "fragrance_free": true,
     "dermatologist_tested": true,
     "moisturization_level": "Moderate — hydrating but not heavy"
+  },
+  {
+    "product_id": "ritebite_max_protein_bar",
+    "name": "Max Protein Bar – Choco Slim",
+    "brand": "RiteBite",
+    "blinkit_category": "Health & Wellness",
+    "blinkit_subcategory": "Protein & Nutrition",
+    "price_inr": 85,
+    "weight_or_pack": "67g",
+    "price_per_unit": "₹127/100g",
+    "goal_tags": ["healthy_snacking"],
+    "filter_tags": ["high_protein", "low_sugar", "no_maida"],
+    "compare_tags": ["protein bar", "energy bar", "nutrition bar"],
+    "benefits": ["20g protein per bar", "Low glycaemic index", "No refined sugar", "Satiating between meals"],
+    "ingredients_highlights": ["Whey Protein Isolate", "Dark Chocolate Coating", "Oats", "No artificial sweetener"],
+    "nutrition_per_serving": {
+      "calories": "215 kcal",
+      "protein_g": "20g",
+      "carbs_g": "18g",
+      "sugar_g": "3g",
+      "fibre_g": "2g",
+      "fat_g": "6g"
+    },
+    "allergens": ["Milk", "Nuts", "Gluten"]
   }
 ]
