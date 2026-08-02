@@ -175,7 +175,7 @@ After the LLM responds, the code iterates the ranked list in order and maintains
 **Status:** Active
 
 **Decision:**  
-Added **MuscleBlaze Whey Protein** (`product_id: muscleblaze_whey_protein`) to `data/products.json` under `blinkit_category: "Health & Pharma"` with `goal_tags: ["healthy_snacking"]`. Also moved **RiteBite Max Protein Bar** back to `Snacks & Drinks`.
+Added **MuscleBlaze Whey Protein** (`product_id: muscleblaze_whey_protein`) to `data/products.json` under `blinkit_category: "Beauty & Personal Care"` (subcategory `Health & Pharma`) with `goal_tags: ["healthy_snacking"]`. Also moved **RiteBite Max Protein Bar** back to `Snacks & Drinks`.
 
 **Reason:**  
 The original `healthy_snacking` products only spanned 2 distinct `blinkit_category` values (`Snacks & Drinks`, `Grocery & Kitchen`). An initial fix attempted to add RiteBite under `Health & Wellness`, but that is not a real Blinkit category. To properly test cross-category discovery, a genuine third Blinkit category (`Health & Pharma`) was required.
@@ -184,7 +184,7 @@ The original `healthy_snacking` products only spanned 2 distinct `blinkit_catego
 
 | Goal | blinkit_categories covered |
 |------|---------------------------|
-| `healthy_snacking` | Snacks & Drinks, Grocery & Kitchen, Health & Pharma |
+| `healthy_snacking` | Snacks & Drinks, Grocery & Kitchen, Beauty & Personal Care |
 | `better_skin` | Beauty & Personal Care, Snacks & Drinks, Grocery & Kitchen |
 
 ---
