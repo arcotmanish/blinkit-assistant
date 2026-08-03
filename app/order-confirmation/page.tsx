@@ -74,36 +74,22 @@ function OrderConfirmationContent() {
 
       <div style={{ position: 'relative', zIndex: 10, padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px' }}>
         
-        {/* Checkmark Card */}
+        {/* Checkmark */}
         <div style={{
-          backgroundColor: '#fff',
-          borderRadius: '8px',
-          padding: '24px',
+          width: '72px',
+          height: '72px',
+          borderRadius: '50%',
+          backgroundColor: 'var(--color-primary)',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
-          gap: '12px',
-          width: '180px',
+          justifyContent: 'center',
+          color: '#fff',
           marginTop: '24px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.5)'
+          boxShadow: '0 8px 32px rgba(12,131,31,0.4)'
         }}>
-          <div style={{
-            width: '48px',
-            height: '48px',
-            borderRadius: '50%',
-            backgroundColor: 'var(--color-primary)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff'
-          }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <span style={{ color: '#000', fontSize: '10px', fontWeight: 600, textAlign: 'center' }}>
-            Thank you for your order!
-          </span>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
         </div>
 
         {/* Hero Text */}
