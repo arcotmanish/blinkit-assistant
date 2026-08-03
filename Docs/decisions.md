@@ -30,6 +30,13 @@
 | D-18 | Product imagery using emoji tokens | Phase 7 | UI / Data |
 | D-19 | Recommendation Card strict vertical flow & fixed heights | Phase 7 | UI / Layout |
 | D-20 | Skincare price-per-unit formatting logic | Phase 7 | Data / UX |
+| D-21 | Compare Bottom Sheet selection logic (max 2, auto-shift) | Phase 8 | UX / Logic |
+| D-22 | Explicit skincare criteria hardcoded in LLM comparison prompt | Phase 8 | AI / Logic |
+| D-23 | Winner/loser badges suppressed for Allergens row | Phase 8 | UI / Logic |
+| D-24 | Skincare placeholder fields added to dietary products | Phase 8 | Data |
+| D-25 | Option 4 Search checks both name and brand | Phase 8 | UX / Logic |
+| D-26 | Explicit sentence counts in "Why This" prompt | Phase 8 | AI / Logic |
+| D-27 | Next.js dev indicator moved to bottom-right | Phase 8 | Config / UX |
 
 ---
 
@@ -443,3 +450,101 @@ Skincare and cosmetic products in `data/products.json` must have their `price_pe
 
 **Reason:**  
 Skincare products are often expensive and sold in small quantities (e.g., 30ml serums, 50ml sunscreens). Scaling their price to 100ml creates absurdly high unit prices in the UI (e.g., `₹1997/100ml`). Changing this to `₹19.97/ml` is much more digestible for the user and reflects how high-end cosmetics are usually perceived. Food and grocery items retain the standard `/100g` format.
+
+---
+
+### D-21 — Compare Bottom Sheet Selection Logic (Max 2, Auto-shift)
+
+**Phase:** 8 — Comparison UI  
+**Category:** UX / Logic  
+**Status:** Active
+
+**Decision:**  
+The `CompareBottomSheet` enforces a strict maximum of 2 selections. If a user selects a 3rd product, the oldest selection is automatically deselected (FIFO queue logic). 
+
+**Reason:**  
+Comparison tables on mobile are heavily space-constrained. Showing 3 or more products side-by-side on a 390px viewport results in unreadable, squished text. Auto-shifting the selections provides a fluid UX without throwing error toast messages to the user.
+
+---
+
+### D-22 — Explicit Skincare Criteria Hardcoded in LLM Comparison Prompt
+
+**Phase:** 8 — Comparison UI  
+**Category:** AI / Logic  
+**Status:** Active
+
+**Decision:**  
+For the `better_skin` goal, the comparison prompt in `lib/prompts.ts` explicitly hardcodes the exact 8 criteria the LLM must return in the `comparison_rows` array (e.g., "Key Active Ingredients", "Skin Type Suitability", "Paraben Free", etc.).
+
+**Reason:**  
+Without explicit constraints, the LLM hallucinates different row headers depending on the products compared, causing inconsistent table rendering. Hardcoding the required criteria guarantees a uniform comparison matrix every time.
+
+---
+
+### D-23 — Winner/Loser Badges Suppressed for Allergens Row
+
+**Phase:** 8 — Comparison UI  
+**Category:** UI / Logic  
+**Status:** Active
+
+**Decision:**  
+In `ComparisonTable.tsx`, the row titled "Allergens / Sensitivities" (or "Allergens") is intercepted during rendering, and the `winner` value is forcefully ignored. It displays values as plain text without the green "✓ Better" or red "✗" badges.
+
+**Reason:**  
+Allergens are highly subjective. A product with "Peanuts" is not objectively "worse" than one without, unless the specific user is allergic to peanuts. Since we do not have user allergy profiles in this prototype, we cannot pass judgment. Neutrally displaying the facts prevents giving dangerous or inaccurate medical-adjacent advice.
+
+---
+
+### D-24 — Skincare Placeholder Fields Added to Dietary Products
+
+**Phase:** 8 — Comparison UI  
+**Category:** Data  
+**Status:** Active
+
+**Decision:**  
+Dietary products in `data/products.json` that are tagged for the `better_skin` goal (like Ragi Crackers, Amla Juice, Almonds) have been given explicit placeholder values for skincare-specific fields (e.g., `"paraben_free": "N/A — food product"`, `"dermatologist_tested": "N/A — food product"`).
+
+**Reason:**  
+When the LLM compares a topical serum against a dietary food product for a skincare goal, it needs data to fill the rigid skincare criteria rows. Without these placeholders, the LLM hallucinates values or leaves the cells awkwardly blank.
+
+---
+
+### D-25 — Option 4 Search Checks Both Name and Brand
+
+**Phase:** 8 — Comparison UI  
+**Category:** UX / Logic  
+**Status:** Active
+
+**Decision:**  
+The search filter for the Option 4 manual product lookup in the `CompareBottomSheet` checks against both `product.name` and `product.brand`.
+
+**Reason:**  
+Users frequently search for products using the brand name (e.g., typing "Dot & Key" to find the "Vitamin C & E Moisturiser"). Only searching the `name` field resulted in zero matches if the brand wasn't explicitly duplicated in the product title.
+
+---
+
+### D-26 — Explicit Sentence Counts in "Why This" Prompt
+
+**Phase:** 8 — Comparison UI  
+**Category:** AI / Logic  
+**Status:** Active
+
+**Decision:**  
+The recommendation prompt in `lib/prompts.ts` strictly dictates length using the phrasing: *"Write exactly 2 detailed sentences"* instead of *"2 lines"*.
+
+**Reason:**  
+The LLM interpreted "lines" as short, disconnected fragments (e.g., "Low sugar. High protein."), leading to a brief and robotic UX. Explicitly requesting "detailed sentences" forces the model to generate the conversational, persuasive tone required for a shopping assistant.
+
+---
+
+### D-27 — Next.js Dev Indicator Moved to Bottom-Right
+
+**Phase:** 8 — Comparison UI  
+**Category:** Config / UX  
+**Status:** Active
+
+**Decision:**  
+Added `devIndicators: { position: 'bottom-right' }` to `next.config.ts`.
+
+**Reason:**  
+By default in Next.js 15+, the static compilation indicator (a floating black circle with an "N") sits in the bottom-left corner during development. In our strict 390px mobile layout, this completely blocked the "Home" icon in the `BottomNav`. Moving it to the right prevents UX obstruction during demos.
