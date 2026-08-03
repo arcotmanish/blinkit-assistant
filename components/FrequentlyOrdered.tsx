@@ -2,7 +2,7 @@ import React from 'react';
 
 const products = [
   { id: 1, name: 'Amul Taaza Toned Fresh Milk', weight: '500 ml', price: 28, icon: '🥛' },
-  { id: 2, name: 'Hen Fruit White Farm Eggs', weight: '6 pcs', price: 54, icon: '🥚', quantity: 1 },
+  { id: 2, name: 'Hen Fruit White Farm Eggs', weight: '6 pcs', price: 54, icon: '🥚' },
   { id: 3, name: 'Fresh Coriander Bundle', weight: '100 g', price: 12, icon: '🌿' },
 ];
 
