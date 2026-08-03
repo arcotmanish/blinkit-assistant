@@ -23,6 +23,9 @@
 | D-11 | Data stored in 3 local JSON files — no database | Phase 1 | Architecture |
 | D-12 | Vanilla CSS — no Tailwind | Phase 0 | Frontend |
 | D-13 | Third blinkit_category added for better_skin dataset | Phase 4 fix | Data |
+| D-14 | Frontend layout matches dense Blinkit reference exactly | Phase 6 | Frontend |
+| D-15 | State lifted to page.tsx to clear child state on toggle off | Phase 6 | React / State |
+| D-16 | Standard static content hidden during active AI mode | Phase 6 | UX / Layout |
 
 ---
 
@@ -337,3 +340,44 @@ After adding Happilo Almonds, the `/api/recommend` endpoint for `better_skin` co
 **Rule established for future data additions:**  
 Before adding any new goal to the dataset, verify that products for that goal span **at least 3 distinct `blinkit_category` values** in `products.json`. The category diversity filter requires a minimum of 3 categories to guarantee 3 diverse recommendations.
 
+---
+
+### D-14 — Frontend Layout Matches Dense Blinkit Reference Exactly
+
+**Phase:** 6 — Frontend UI Shell  
+**Category:** Frontend  
+**Status:** Active
+
+**Decision:**  
+The frontend UI was styled to exactly match a provided Blinkit design reference. This includes a 390px mobile-first container, a deep dark theme (background `#0f0f0f`), compact spacing (12px–16px gaps), a custom green toggle switch, and placeholder static components (`ShopByCategory`, `FrequentlyOrdered`, `PromoBanner`, `BottomNav`).
+
+**Reason:**  
+To make the AI prototype feel realistic and authentic to Blinkit, the layout must be dense. We reduced card heights and image sizes in `FrequentlyOrdered` to prevent a vertically or horizontally stretched look on narrow viewports.
+
+---
+
+### D-15 — State Lifted to page.tsx to Clear Child State on Toggle Off
+
+**Phase:** 6 — Frontend UI Shell  
+**Category:** React / State  
+**Status:** Active
+
+**Decision:**  
+The user's text input (`query`) was lifted from `GoalSearchBar` up to the parent `app/page.tsx`. When the AI mode toggle is turned off, `page.tsx` clears `query` and sets `detectedGoal` to `null`. 
+
+**Reason:**  
+Lifting the state up ensures that when the AI assistant is disabled, the search bar completely resets. Setting `detectedGoal` to `null` cleanly unmounts the `FilterRow` component, which automatically and effortlessly destroys any local state inside it (like `selectedFilters` and `freeText`), ensuring a fresh state upon the next interaction.
+
+---
+
+### D-16 — Standard Static Content Hidden During Active AI Mode
+
+**Phase:** 6 — Frontend UI Shell  
+**Category:** UX / Layout  
+**Status:** Active
+
+**Decision:**  
+The static placeholder components (`ShopByCategory`, `FrequentlyOrdered`, `PromoBanner`) are conditionally hidden when `isAiMode` is true AND a `detectedGoal` is present.
+
+**Reason:**  
+Once the user enters the AI assistant flow and goal filters are displayed, the screen should be fully dedicated to the AI shopping experience. Hiding the default store content keeps the interface clean, uncluttered, and focuses the user's attention on refining their AI recommendations.
