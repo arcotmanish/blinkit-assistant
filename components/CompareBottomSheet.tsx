@@ -54,10 +54,11 @@ export default function CompareBottomSheet({
   };
 
   const allRecommendationsIds = recommendations.map(r => r.product_id);
-  const searchResults = productsData.filter(p => 
-    !allRecommendationsIds.includes(p.product_id) && 
-    p.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const searchResults = productsData.filter(p => {
+    if (allRecommendationsIds.includes(p.product_id)) return false;
+    const q = searchQuery.toLowerCase();
+    return p.name.toLowerCase().includes(q) || (p.brand && p.brand.toLowerCase().includes(q));
+  });
 
   const handleSelectOption4 = (product: any) => {
     setOption4Product(product);
