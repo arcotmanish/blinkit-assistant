@@ -228,7 +228,7 @@ function FeedbackContent() {
       }}>
         <button 
           onClick={handleSubmit}
-          disabled={isSubmitting}
+          disabled={Object.keys(selectedReasons).length === 0 || isSubmitting}
           style={{
             backgroundColor: 'var(--color-primary)',
             color: '#000',
@@ -241,8 +241,8 @@ function FeedbackContent() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            cursor: isSubmitting ? 'not-allowed' : 'pointer',
-            opacity: isSubmitting ? 0.7 : 1
+            cursor: (Object.keys(selectedReasons).length === 0 || isSubmitting) ? 'not-allowed' : 'pointer',
+            opacity: (Object.keys(selectedReasons).length === 0 || isSubmitting) ? 0.5 : 1
           }}
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}
