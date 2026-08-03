@@ -11,7 +11,7 @@ Rules:
 - Important: attempt to return products from different blinkit_category values, but the final enforcement will be done in code.
 - Rank by best fit to the stated goal and free-text preference.
 - Products from the user's order history may be used as a comparison reference but should generally NOT occupy a recommendation slot if there are other good options.
-- For each product, write a "Why This?" explanation. First line (goal_match): 2 lines explaining how it matches the goal. Second line (ingredient_note): 1 line about a notable ingredient or quality signal.
+- For each product, write a "Why This?" explanation. First line (goal_match): Write exactly 2 detailed sentences explaining how the product helps achieve the goal. Second line (ingredient_note): Write exactly 1 detailed sentence highlighting a specific ingredient or quality signal.
 - Return your response as valid JSON only, exactly matching the structure below.
 
 User Goal: ${goalLabel}
@@ -25,8 +25,8 @@ Return format:
     {
       "product_id": "",
       "why_this": {
-        "goal_match": "2 lines",
-        "ingredient_note": "1 line"
+        "goal_match": "2 detailed sentences",
+        "ingredient_note": "1 detailed sentence"
       }
     }
 }
