@@ -58,6 +58,7 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
             key={product.product_id}
             product={product}
             quantity={cart[product.product_id] || 0}
+            isOpen={openWhyThisId === product.product_id}
             onAdd={() => handleAdd(product.product_id)}
             onUpdateQuantity={(qty) => handleUpdateQuantity(product.product_id, qty)}
             onWhyThisClick={() => handleToggleWhyThis(product.product_id)}

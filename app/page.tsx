@@ -65,6 +65,7 @@ export default function Home() {
       const recommendData = await recommendRes.json();
       
       setRecommendations(recommendData.recommendations || []);
+      setQuery(''); // Reset search input so placeholder 'Change goal...' shows
     } catch (error) {
       console.error("Error fetching recommendations:", error);
       alert("Failed to get recommendations.");
