@@ -104,7 +104,9 @@ export default function ComparisonTable({ compareResult, products, onClose }: Co
             </thead>
             <tbody>
               {compareResult.comparison_rows?.map((row: any, idx: number) => {
-                const winner = Number(row.winner);
+                const isAllergensRow = row.feature_name.toLowerCase().includes('allergen');
+                // Force winner to -1 for allergens so no badge is rendered
+                const winner = isAllergensRow ? -1 : Number(row.winner);
                 
                 return (
                   <tr key={idx} style={{ borderBottom: idx === compareResult.comparison_rows.length - 1 ? 'none' : '1px solid var(--border-color)' }}>
