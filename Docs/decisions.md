@@ -26,6 +26,10 @@
 | D-14 | Frontend layout matches dense Blinkit reference exactly | Phase 6 | Frontend |
 | D-15 | State lifted to page.tsx to clear child state on toggle off | Phase 6 | React / State |
 | D-16 | Standard static content hidden during active AI mode | Phase 6 | UX / Layout |
+| D-17 | GoalSearchBar stays visible as "Change goal..." | Phase 7 | UX / Navigation |
+| D-18 | Product imagery using emoji tokens | Phase 7 | UI / Data |
+| D-19 | Recommendation Card strict vertical flow & fixed heights | Phase 7 | UI / Layout |
+| D-20 | Skincare price-per-unit formatting logic | Phase 7 | Data / UX |
 
 ---
 
@@ -381,3 +385,61 @@ The static placeholder components (`ShopByCategory`, `FrequentlyOrdered`, `Promo
 
 **Reason:**  
 Once the user enters the AI assistant flow and goal filters are displayed, the screen should be fully dedicated to the AI shopping experience. Hiding the default store content keeps the interface clean, uncluttered, and focuses the user's attention on refining their AI recommendations.
+
+---
+
+### D-17 — GoalSearchBar Stays Visible as "Change goal..."
+
+**Phase:** 7 — Recommendation Cards  
+**Category:** UX / Navigation  
+**Status:** Active
+
+**Decision:**  
+When AI recommendations are successfully loaded and displayed, the `GoalSearchBar` remains pinned at the top of the screen instead of being hidden. The input is cleared and the placeholder changes to `"Change goal..."`.
+
+**Reason:**  
+This allows the user to immediately type a new goal and re-trigger the entire AI flow without needing a separate "Back" button or forcing them to exit the AI mode first. It creates a seamless, continuous discovery loop.
+
+---
+
+### D-18 — Product Imagery Using Emoji Tokens
+
+**Phase:** 7 — Recommendation Cards  
+**Category:** UI / Data  
+**Status:** Active
+
+**Decision:**  
+Instead of using generic grey placeholder blocks or external image URLs, each product in `data/products.json` was assigned an `icon` field containing a relevant emoji (e.g., 🌰, 🥛, ✨). These emojis are rendered large in the center of the dark image area of the `RecommendationCard`.
+
+**Reason:**  
+- We don't have access to the actual product images in this repository.
+- Emojis maintain the exact same stylistic language as the homepage category icons, making the prototype feel cohesive.
+- It prevents broken image links and keeps the payload lightweight.
+
+---
+
+### D-19 — Recommendation Card Strict Vertical Flow & Fixed Heights
+
+**Phase:** 7 — Recommendation Cards  
+**Category:** UI / Layout  
+**Status:** Active
+
+**Decision:**  
+The `RecommendationCard` layout forces a strict vertical stack (Emoji → Name → Weight → Price → Actions). The product name container is set to a strict fixed height (`48px`) with `overflow: hidden` and `-webkit-line-clamp: 2`. 
+
+**Reason:**  
+In a horizontally scrolling carousel, if cards have variable heights based on their text content, the price and action buttons become misaligned horizontally across the row. Enforcing a fixed height for the name block guarantees that the price and action buttons anchor at the exact same vertical coordinate on every card, creating a polished, uniform layout regardless of how long the product name is.
+
+---
+
+### D-20 — Skincare Price-Per-Unit Formatting Logic
+
+**Phase:** 7 — Recommendation Cards  
+**Category:** Data / UX  
+**Status:** Active
+
+**Decision:**  
+Skincare and cosmetic products in `data/products.json` must have their `price_per_unit` calculated per `ml` or per `g`, rather than per `100ml` or `100g`.
+
+**Reason:**  
+Skincare products are often expensive and sold in small quantities (e.g., 30ml serums, 50ml sunscreens). Scaling their price to 100ml creates absurdly high unit prices in the UI (e.g., `₹1997/100ml`). Changing this to `₹19.97/ml` is much more digestible for the user and reflects how high-end cosmetics are usually perceived. Food and grocery items retain the standard `/100g` format.
