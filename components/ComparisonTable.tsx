@@ -9,6 +9,19 @@ interface ComparisonTableProps {
 export default function ComparisonTable({ compareResult, products, onClose }: ComparisonTableProps) {
   if (!compareResult || !products || products.length !== 2) return null;
 
+  const formatValue = (val: any) => {
+    if (val === 'true' || val === true) {
+      return <span style={{ color: 'var(--color-primary)', fontWeight: 600 }}>✓ Yes</span>;
+    }
+    if (val === 'false' || val === false) {
+      return <span style={{ color: '#ff4d4f', fontWeight: 600 }}>✗ No</span>;
+    }
+    if (val === '[]' || val === '[] ' || (Array.isArray(val) && val.length === 0)) {
+      return 'None';
+    }
+    return val;
+  };
+
   return (
     <div style={{
       marginTop: '16px',
@@ -91,7 +104,7 @@ export default function ComparisonTable({ compareResult, products, onClose }: Co
             </thead>
             <tbody>
               {compareResult.comparison_rows?.map((row: any, idx: number) => {
-                const winner = row.winner;
+                const winner = Number(row.winner);
                 
                 return (
                   <tr key={idx} style={{ borderBottom: idx === compareResult.comparison_rows.length - 1 ? 'none' : '1px solid var(--border-color)' }}>
@@ -99,13 +112,13 @@ export default function ComparisonTable({ compareResult, products, onClose }: Co
                       {row.feature_name}
                     </td>
                     <td style={{ padding: '12px 8px', verticalAlign: 'top' }}>
-                      <div style={{ marginBottom: '4px', lineHeight: '1.4' }}>{row.product_1_value}</div>
+                      <div style={{ marginBottom: '4px', lineHeight: '1.4' }}>{formatValue(row.product_1_value)}</div>
                       {winner === 1 && <span style={{ color: 'var(--color-primary)', fontWeight: 700, fontSize: '12px' }}>✓ Better</span>}
                       {winner === 2 && <span style={{ color: '#ff4d4f', fontWeight: 600, fontSize: '12px' }}>✗</span>}
                       {winner === 0 && <span style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>Tie</span>}
                     </td>
                     <td style={{ padding: '12px 16px 12px 8px', verticalAlign: 'top' }}>
-                      <div style={{ marginBottom: '4px', lineHeight: '1.4' }}>{row.product_2_value}</div>
+                      <div style={{ marginBottom: '4px', lineHeight: '1.4' }}>{formatValue(row.product_2_value)}</div>
                       {winner === 2 && <span style={{ color: 'var(--color-primary)', fontWeight: 700, fontSize: '12px' }}>✓ Better</span>}
                       {winner === 1 && <span style={{ color: '#ff4d4f', fontWeight: 600, fontSize: '12px' }}>✗</span>}
                       {winner === 0 && <span style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>Tie</span>}
