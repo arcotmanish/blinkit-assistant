@@ -41,8 +41,8 @@ export const getComparisonPrompt = (
 ) => {
   const isSkincare = goalLabel.toLowerCase().includes('skin');
   const criteriaInstructions = isSkincare 
-    ? `Create an array of exactly 8 comparison_rows. The feature_names MUST be exactly: "Key Active Ingredients", "Skin Type Suitability", "Paraben Free", "Fragrance / Irritants", "Moisturization Level", "Dermatologist Tested", "Allergens / Sensitivities", and "Price". Do NOT include weight or price per unit.`
-    : `Create an array of comparison_rows. Each row represents a feature/metric relevant to the products (e.g., "Protein", "Calories", "Price", "Key Ingredients", "Allergens").`;
+    ? `Create an array of exactly 9 comparison_rows. The feature_names MUST be exactly: "Benefits", "Key Active Ingredients", "Skin Type Suitability", "Paraben Free", "Fragrance / Irritants", "Moisturization Level", "Dermatologist Tested", "Allergens / Sensitivities", and "Price". Do NOT include weight or price per unit.`
+    : `Create an array of comparison_rows. Each row represents a feature/metric relevant to the products (e.g., "Benefits", "Protein", "Calories", "Price", "Key Ingredients", "Allergens").`;
 
   return `System: You are an analytical product comparison assistant for Blinkit.
 Your job is to generate an AI summary and organize product data into a comparison table for the 2 given products.
@@ -50,7 +50,7 @@ Your job is to generate an AI summary and organize product data into a compariso
 Rules:
 1. Write a 2-line AI summary (ai_summary) highlighting the key differences between the 2 products in the context of the user's goal (${goalLabel}) and preference (${freeTextPreference || 'None'}).
 2. ${criteriaInstructions}
-3. CRITICAL: Do NOT invent, hallucinate, or calculate any product facts. All comparison values (product_1_value, product_2_value) MUST be extracted directly from the provided product JSON data (e.g., nutrition_per_serving, price_per_unit, ingredients_highlights, benefits). If a value is missing for a product, output "N/A".
+3. CRITICAL: Do NOT invent, hallucinate, or calculate any product facts. All comparison values (product_1_value, product_2_value) MUST be extracted directly from the provided product JSON data (e.g., nutrition_per_serving, price_per_unit, ingredients_highlights, benefits). For 'Benefits', read the 'benefits' array and list them as comma separated values. Use only the data provided in the product objects below. Do not use any knowledge outside of what is provided. If a field is missing or N/A, display it as N/A in the table.
 4. For each row, determine which product is better based on the context. Set "winner" to 1 (if Product 1 is better), 2 (if Product 2 is better), or 0 (if it's a Tie or neither is strictly better).
 5. The order of products in the row values must exactly match the order of the products provided in the input array.
 6. Return ONLY valid JSON exactly matching the structure below.

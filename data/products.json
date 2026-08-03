@@ -379,6 +379,12 @@
       "Wheat",
       "Gluten"
     ],
+    "key_active_ingredients": ["Ragi (Finger Millet)", "Dietary Fibre", "Calcium"],
+    "skin_type_suitability": "All — works from inside out via nutrition",
+    "paraben_free": "N/A — food product",
+    "fragrance_free": "N/A — food product",
+    "dermatologist_tested": "N/A — food product",
+    "moisturization_level": "N/A — dietary product, not topical",
     "icon": "🌾"
   },
   {
@@ -419,6 +425,11 @@
       "No added sugar"
     ],
     "allergens": [],
+    "skin_type_suitability": "All — supports skin from within via Vitamin C",
+    "paraben_free": "N/A — food product",
+    "fragrance_free": "N/A — food product",
+    "dermatologist_tested": "N/A — food product",
+    "moisturization_level": "N/A — dietary product, not topical",
     "icon": "🍹"
   },
   {
@@ -566,9 +577,9 @@
       "Tree Nuts (Almonds)"
     ],
     "skin_type_suitability": "All skin types — works from inside out via nutrition",
-    "paraben_free": true,
-    "fragrance_free": true,
-    "dermatologist_tested": false,
+    "paraben_free": "N/A — food product",
+    "fragrance_free": "N/A — food product",
+    "dermatologist_tested": "N/A — food product",
     "moisturization_level": "N/A — dietary product, not topical",
     "icon": "🥜"
   },

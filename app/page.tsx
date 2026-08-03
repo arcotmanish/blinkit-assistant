@@ -104,18 +104,20 @@ export default function Home() {
       </div>
 
       <div style={{ padding: '0 16px' }}>
-        <AssistantToggleCard 
-          isAiMode={isAiMode} 
-          onToggle={handleToggleAiMode} 
-        />
+        <div style={{ position: 'sticky', top: 0, zIndex: 40, background: 'var(--bg-main)', paddingBottom: '8px' }}>
+          <AssistantToggleCard 
+            isAiMode={isAiMode} 
+            onToggle={handleToggleAiMode} 
+          />
 
-        <GoalSearchBar 
-          isAiMode={isAiMode} 
-          query={query}
-          setQuery={setQuery}
-          onGoalDetected={handleGoalDetected} 
-          placeholder={(recommendations.length > 0 || isLoadingRecommendations) ? 'Change goal...' : undefined}
-        />
+          <GoalSearchBar 
+            isAiMode={isAiMode} 
+            query={query}
+            setQuery={setQuery}
+            onGoalDetected={handleGoalDetected} 
+            placeholder={(recommendations.length > 0 || isLoadingRecommendations) ? 'Change goal...' : undefined}
+          />
+        </div>
 
         {isAiMode && detectedGoal && recommendations.length === 0 && !isLoadingRecommendations && (
           <FilterRow 
