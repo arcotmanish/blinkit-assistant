@@ -78,33 +78,33 @@ export default function Home() {
 
   return (
     <main className="app-container">
-      {/* Top Header Placeholder (simulating Blinkit's top bar) */}
-      <div style={{ padding: '12px 16px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          <div style={{ fontSize: '20px', fontWeight: 700, marginBottom: '2px' }}>Delivery in 10 minutes</div>
-          <div style={{ fontSize: '13px', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <span>📍</span> Blinkit Demo Area <span style={{ fontSize: '10px' }}>▼</span>
+      <div style={{ position: 'sticky', top: 0, zIndex: 40, background: 'var(--bg-main)' }}>
+        {/* Top Header Placeholder (simulating Blinkit's top bar) */}
+        <div style={{ padding: '12px 16px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontSize: '20px', fontWeight: 700, marginBottom: '2px' }}>Delivery in 10 minutes</div>
+            <div style={{ fontSize: '13px', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span>📍</span> Blinkit Demo Area <span style={{ fontSize: '10px' }}>▼</span>
+            </div>
+          </div>
+          <div style={{ 
+            width: '36px', 
+            height: '36px', 
+            borderRadius: '50%', 
+            backgroundColor: 'rgba(0, 177, 64, 0.15)',
+            color: 'var(--color-primary)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
           </div>
         </div>
-        <div style={{ 
-          width: '36px', 
-          height: '36px', 
-          borderRadius: '50%', 
-          backgroundColor: 'rgba(0, 177, 64, 0.15)',
-          color: 'var(--color-primary)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
-      </div>
 
-      <div style={{ padding: '0 16px' }}>
-        <div style={{ position: 'sticky', top: 0, zIndex: 40, background: 'var(--bg-main)', paddingBottom: '8px' }}>
+        <div style={{ padding: '0 16px 8px' }}>
           <AssistantToggleCard 
             isAiMode={isAiMode} 
             onToggle={handleToggleAiMode} 
@@ -118,7 +118,9 @@ export default function Home() {
             placeholder={(recommendations.length > 0 || isLoadingRecommendations) ? 'Change goal...' : undefined}
           />
         </div>
+      </div>
 
+      <div style={{ padding: '0 16px' }}>
         {isAiMode && detectedGoal && recommendations.length === 0 && !isLoadingRecommendations && (
           <FilterRow 
             goalId={detectedGoal.id} 
