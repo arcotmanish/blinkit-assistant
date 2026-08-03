@@ -41,7 +41,7 @@ function OrderConfirmationContent() {
       <div style={{ 
         display: 'flex', 
         alignItems: 'center', 
-        justifyContent: 'space-between', 
+        justifyContent: 'center', 
         padding: '16px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
         backgroundColor: 'var(--bg-main)',
@@ -49,27 +49,9 @@ function OrderConfirmationContent() {
         top: 0,
         zIndex: 50
       }}>
-        <button 
-          onClick={handleGoHome}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            color: 'var(--color-primary)',
-            fontSize: '16px',
-            fontWeight: 600,
-            cursor: 'pointer',
-            padding: '8px 0'
-          }}
-        >
-          close
-        </button>
-        
         <h1 style={{ fontSize: '18px', fontWeight: 700, margin: 0, color: 'var(--color-primary)' }}>
           Order Confirmed
         </h1>
-        
-        {/* Placeholder for symmetry */}
-        <div style={{ width: '40px' }}></div>
       </div>
 
       <div style={{ position: 'relative', zIndex: 10, padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px' }}>
