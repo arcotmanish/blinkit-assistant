@@ -139,6 +139,7 @@ export default function Home() {
 
         {recommendations.length > 0 && (
           <RecommendationsView 
+            goalId={detectedGoal!.id}
             goalLabel={detectedGoal!.label}
             recommendations={recommendations}
           />

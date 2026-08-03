@@ -6,13 +6,15 @@ interface CompareBottomSheetProps {
   onClose: () => void;
   recommendations: any[];
   onCompare: (products: any[]) => void;
+  onOption4Select?: (product: any) => void;
 }
 
 export default function CompareBottomSheet({
   isOpen,
   onClose,
   recommendations,
-  onCompare
+  onCompare,
+  onOption4Select
 }: CompareBottomSheetProps) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -64,6 +66,10 @@ export default function CompareBottomSheet({
     setOption4Product(product);
     setSearchQuery('');
     setIsSearching(false);
+    
+    if (onOption4Select) {
+      onOption4Select(product);
+    }
     
     // Auto-select it
     setSelectedIds(prev => {

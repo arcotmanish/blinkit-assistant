@@ -3,14 +3,19 @@ import RecommendationCard from './RecommendationCard';
 import CompareBottomSheet from './CompareBottomSheet';
 import ComparisonTable from './ComparisonTable';
 
+import { useRouter } from 'next/navigation';
+
 interface RecommendationsViewProps {
+  goalId: string;
   goalLabel: string;
   recommendations: any[];
 }
 
-export default function RecommendationsView({ goalLabel, recommendations }: RecommendationsViewProps) {
+export default function RecommendationsView({ goalId, goalLabel, recommendations }: RecommendationsViewProps) {
+  const router = useRouter();
   const [cart, setCart] = useState<Record<string, number>>({});
   const [openWhyThisId, setOpenWhyThisId] = useState<string | null>(null);
+  const [option4Ids, setOption4Ids] = useState<string[]>([]);
   
   const [isCompareSheetOpen, setIsCompareSheetOpen] = useState(false);
   const [isComparing, setIsComparing] = useState(false);
@@ -67,6 +72,34 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
     } finally {
       setIsComparing(false);
     }
+  };
+
+  const handleOption4Select = (product: any) => {
+    setOption4Ids(prev => {
+      if (prev.includes(product.product_id)) return prev;
+      return [...prev, product.product_id];
+    });
+  };
+
+  const handleGoToCart = () => {
+    if (!isCartActive) return;
+    
+    const cartParam = Object.entries(cart)
+      .map(([id, qty]) => `${id}:${qty}`)
+      .join(',');
+      
+    const recsParam = recommendations.map(r => r.product_id).join(',');
+    const opt4Param = option4Ids.join(',');
+    
+    const url = new URL('/cart', window.location.origin);
+    url.searchParams.set('cart', cartParam);
+    url.searchParams.set('recs', recsParam);
+    url.searchParams.set('goal', goalId);
+    if (opt4Param) {
+      url.searchParams.set('opt4', opt4Param);
+    }
+    
+    router.push(url.pathname + url.search);
   };
 
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
@@ -196,7 +229,9 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
           COMPARE
         </button>
         
-        <button style={{
+        <button 
+          onClick={handleGoToCart}
+          style={{
           backgroundColor: isCartActive ? 'var(--color-primary)' : 'var(--bg-card)',
           color: isCartActive ? '#000' : 'var(--color-primary)',
           border: isCartActive ? 'none' : '1px solid var(--color-primary)',
@@ -225,6 +260,7 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
         onClose={() => setIsCompareSheetOpen(false)}
         recommendations={recommendations}
         onCompare={handleCompare}
+        onOption4Select={handleOption4Select}
       />
     </div>
   );
