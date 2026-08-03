@@ -43,7 +43,7 @@ export default function RecommendationCard({
       </div>
       
       {/* Content Area */}
-      <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{ padding: '12px 12px 16px 12px', display: 'flex', flexDirection: 'column', flex: 1 }}>
         
         {/* Product Name */}
         <div style={{ 
@@ -55,7 +55,7 @@ export default function RecommendationCard({
           WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden',
-          minHeight: '32px'
+          height: '48px'
         }}>
           {product.name}
         </div>
