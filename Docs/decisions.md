@@ -37,6 +37,7 @@
 | D-25 | Option 4 Search checks both name and brand | Phase 8 | UX / Logic |
 | D-26 | Explicit sentence counts in "Why This" prompt | Phase 8 | AI / Logic |
 | D-27 | Next.js dev indicator moved to bottom-right | Phase 8 | Config / UX |
+| D-28 | Order Confirmation hard-reset navigation | Phase 9.A | UX / Logic |
 
 ---
 
@@ -548,3 +549,24 @@ Added `devIndicators: { position: 'bottom-right' }` to `next.config.ts`.
 
 **Reason:**  
 By default in Next.js 15+, the static compilation indicator (a floating black circle with an "N") sits in the bottom-left corner during development. In our strict 390px mobile layout, this completely blocked the "Home" icon in the `BottomNav`. Moving it to the right prevents UX obstruction during demos.
+
+---
+
+### D-28 — Order Confirmation Hard-Reset Navigation
+
+**Phase:** 9.A — Order Confirmation  
+**Category:** UX / Logic  
+**Status:** Active
+
+**Decision:**  
+Use `window.location.href = '/'` on the "Go to Home" button in the Order Confirmation page instead of Next.js `router.push('/')`.
+
+**Reason:**  
+The AI Assistant state (toggle status, search queries, recommendations, cart items) is intentionally held in local component state within `app/page.tsx` for simplicity in this prototype. A soft navigation via `router.push('/')` would preserve that state. Using a hard refresh forces the browser to remount the application, cleanly resetting the entire user journey back to square one without requiring complex global state management (like Redux or Context API) to orchestrate a manual reset.
+
+**Alternatives Rejected:**  
+- **Global Context reset** — Over-engineering for a prototype that doesn't need to persist state across sessions.
+- **`router.refresh()`** — Might not clear all client-side React state robustly depending on the cache.
+
+**Tradeoffs:**  
+- A full page reload is slightly slower than a client-side route change and shows a brief flash, but it perfectly mimics the start of a fresh session for demo purposes.

@@ -395,6 +395,33 @@ After the user submits their goal (and optionally their filters):
 
 ---
 
+## Phase 9.A — Order Confirmation
+
+### What gets built
+- When the user taps "Place Order" on the cart page, they are navigated to a new Order Confirmation page.
+- The total amount and item count are passed as URL parameters to populate the order summary.
+- The page displays a green glowing checkmark, a dynamic order number, and non-functional Invoice/Support cards matching the Blinkit design language.
+- A "Go to Home" button at the bottom executes a hard reset (`window.location.href = '/'`) to clear all local state (AI toggle, search bar, recommendations, cart) and cleanly restart the user journey.
+
+### Files created/updated in this phase
+- `app/cart/page.tsx`
+- `app/order-confirmation/page.tsx`
+
+---
+
+### ✅ How you verify Phase 9.A
+
+**Step 1 — Place Order works**
+> On the Cart page, tap the green "PLACE ORDER" button → You should be navigated to `/order-confirmation` and see the glowing green checkmark.
+
+**Step 2 — Order Summary reflects cart**
+> The Order Summary card should accurately show the number of items you had in your basket and the exact total price.
+
+**Step 3 — Clean reset to Home**
+> Tap the "Go to Home" button → You should be returned to the root homepage (`/`). The AI toggle should be OFF, the search bar empty, and your cart should be reset to 0 items.
+
+---
+
 ## Phase 10 — Integration, Polish & Vercel Deployment
 
 ### What gets built
