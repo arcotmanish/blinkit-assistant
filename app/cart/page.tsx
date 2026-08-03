@@ -3,7 +3,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import productsData from '@/data/products.json';
-import FeedbackSheet from '@/components/FeedbackSheet';
 
 function CartContent() {
   const router = useRouter();
@@ -17,7 +16,6 @@ function CartContent() {
   const [opt4, setOpt4] = useState<string[]>([]);
   const [goalId, setGoalId] = useState<string>('');
   
-  const [isFeedbackSheetOpen, setIsFeedbackSheetOpen] = useState(false);
   const [skippedProducts, setSkippedProducts] = useState<any[]>([]);
 
   useEffect(() => {
@@ -240,7 +238,17 @@ function CartContent() {
         {/* Feedback Card */}
         {skippedProducts.length > 0 && (
           <div 
-            onClick={() => setIsFeedbackSheetOpen(true)}
+            onClick={() => {
+              const url = new URL('/feedback', window.location.origin);
+              url.searchParams.set('cart', searchParams.get('cart') || '');
+              url.searchParams.set('recs', searchParams.get('recs') || '');
+              url.searchParams.set('goal', searchParams.get('goal') || '');
+              const opt4Param = searchParams.get('opt4');
+              if (opt4Param) {
+                url.searchParams.set('opt4', opt4Param);
+              }
+              router.push(url.pathname + url.search);
+            }}
             style={{
             backgroundColor: '#4A8BFF', // Blue accent
             borderRadius: '16px',
@@ -357,13 +365,6 @@ function CartContent() {
           </svg>
         </button>
       </div>
-
-      <FeedbackSheet 
-        isOpen={isFeedbackSheetOpen}
-        onClose={() => setIsFeedbackSheetOpen(false)}
-        skippedProducts={skippedProducts}
-        goalId={goalId}
-      />
     </main>
   );
 }

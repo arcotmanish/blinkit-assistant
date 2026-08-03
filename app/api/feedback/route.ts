@@ -9,7 +9,8 @@ export async function POST(request: Request) {
       timestamp: body.timestamp || new Date().toISOString(),
       goal_id: body.goal_id,
       product_id: body.product_id,
-      reason: body.reason
+      reason: body.reason,
+      free_text: body.free_text
     });
     
     return NextResponse.json({ success: true });
