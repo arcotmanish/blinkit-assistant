@@ -83,13 +83,13 @@ export default function RecommendationCard({
               onClick={onAdd}
               style={{
                 flex: 1,
-                minWidth: '60px',
+                minWidth: '50px',
                 border: '1px solid var(--color-primary)',
                 color: 'var(--color-primary)',
                 backgroundColor: 'transparent',
-                padding: '6px 0',
+                padding: '4px 0',
                 borderRadius: '6px',
-                fontSize: '13px',
+                fontSize: '12px',
                 fontWeight: 700,
                 textTransform: 'uppercase'
               }}
@@ -99,20 +99,20 @@ export default function RecommendationCard({
           ) : (
             <div style={{
               flex: 1,
-              minWidth: '60px',
+              minWidth: '50px',
               backgroundColor: 'var(--color-primary)',
               color: '#000',
-              padding: '6px 4px',
+              padding: '4px',
               borderRadius: '6px',
-              fontSize: '14px',
+              fontSize: '13px',
               fontWeight: 700,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between'
             }}>
-              <button onClick={() => onUpdateQuantity(quantity - 1)} style={{ color: '#000', padding: '0', fontSize: '16px', width: '20px' }}>−</button>
+              <button onClick={() => onUpdateQuantity(quantity - 1)} style={{ color: '#000', padding: '0', fontSize: '14px', width: '16px' }}>−</button>
               <span>{quantity}</span>
-              <button onClick={() => onUpdateQuantity(quantity + 1)} style={{ color: '#000', padding: '0', fontSize: '16px', width: '20px' }}>+</button>
+              <button onClick={() => onUpdateQuantity(quantity + 1)} style={{ color: '#000', padding: '0', fontSize: '14px', width: '16px' }}>+</button>
             </div>
           )}
           
@@ -124,22 +124,16 @@ export default function RecommendationCard({
               border: isOpen ? '1px solid var(--color-primary)' : '1px solid var(--border-color)',
               color: isOpen ? 'var(--color-primary)' : 'var(--text-secondary)',
               backgroundColor: isOpen ? 'rgba(0, 177, 64, 0.1)' : '#222',
-              padding: '4px 8px',
+              padding: '4px 6px',
               borderRadius: '16px',
-              fontSize: '11px',
+              fontSize: '10px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '4px',
-              height: '30px'
+              height: '26px'
             }}
           >
-            Why This
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-              <line x1="12" y1="17" x2="12.01" y2="17"></line>
-            </svg>
+            Why This?
           </button>
         </div>
       </div>
