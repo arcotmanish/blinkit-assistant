@@ -345,7 +345,13 @@ function CartContent() {
           </div>
         </div>
         
-        <button style={{
+        <button 
+          onClick={() => {
+            if (cartProducts.length === 0) return;
+            router.push(`/order-confirmation?total=${totalPrice}&count=${totalItemsCount}`);
+          }}
+          disabled={cartProducts.length === 0}
+          style={{
           backgroundColor: 'var(--color-primary)',
           color: '#000',
           border: 'none',
