@@ -7,12 +7,32 @@
     "blinkit_subcategory": "Chips & Namkeen",
     "price_inr": 20,
     "weight_or_pack": "30g",
-    "price_per_unit": "\u20B967/100g",
-    "goal_tags": ["healthy_snacking"],
-    "filter_tags": ["low_fat", "no_maida", "baked"],
-    "compare_tags": ["lays", "potato chips", "packaged snacks"],
-    "benefits": ["Baked not fried", "Multigrain blend", "Lower fat than regular chips"],
-    "ingredients_highlights": ["Rice", "Corn", "Oats", "Wheat", "No artificial colours"],
+    "price_per_unit": "₹67/100g",
+    "goal_tags": [
+      "healthy_snacking"
+    ],
+    "filter_tags": [
+      "low_fat",
+      "no_maida",
+      "baked"
+    ],
+    "compare_tags": [
+      "lays",
+      "potato chips",
+      "packaged snacks"
+    ],
+    "benefits": [
+      "Baked not fried",
+      "Multigrain blend",
+      "Lower fat than regular chips"
+    ],
+    "ingredients_highlights": [
+      "Rice",
+      "Corn",
+      "Oats",
+      "Wheat",
+      "No artificial colours"
+    ],
     "nutrition_per_serving": {
       "calories": "110 kcal",
       "protein_g": "2g",
@@ -21,22 +41,48 @@
       "fibre_g": "2g",
       "fat_g": "3.5g"
     },
-    "allergens": ["Wheat", "Gluten"]
+    "allergens": [
+      "Wheat",
+      "Gluten"
+    ],
+    "icon": "🍘"
   },
   {
     "product_id": "farmley_makhana",
-    "name": "Roasted Makhana \u2013 Classic Salt",
+    "name": "Roasted Makhana – Classic Salt",
     "brand": "Farmley",
     "blinkit_category": "Grocery & Kitchen",
     "blinkit_subcategory": "Dry Fruits & Cereals",
     "price_inr": 99,
     "weight_or_pack": "70g",
-    "price_per_unit": "\u20B9141/100g",
-    "goal_tags": ["healthy_snacking"],
-    "filter_tags": ["high_protein", "low_fat", "high_fibre", "no_maida", "gluten_free"],
-    "compare_tags": ["chips", "popcorn", "puffed snacks"],
-    "benefits": ["High in protein", "Low calorie", "Rich in fibre", "Gluten free", "Antioxidant rich"],
-    "ingredients_highlights": ["Makhana (Lotus Seeds)", "Rock Salt", "Sunflower Oil"],
+    "price_per_unit": "₹141/100g",
+    "goal_tags": [
+      "healthy_snacking"
+    ],
+    "filter_tags": [
+      "high_protein",
+      "low_fat",
+      "high_fibre",
+      "no_maida",
+      "gluten_free"
+    ],
+    "compare_tags": [
+      "chips",
+      "popcorn",
+      "puffed snacks"
+    ],
+    "benefits": [
+      "High in protein",
+      "Low calorie",
+      "Rich in fibre",
+      "Gluten free",
+      "Antioxidant rich"
+    ],
+    "ingredients_highlights": [
+      "Makhana (Lotus Seeds)",
+      "Rock Salt",
+      "Sunflower Oil"
+    ],
     "nutrition_per_serving": {
       "calories": "95 kcal",
       "protein_g": "4.5g",
@@ -45,22 +91,42 @@
       "fibre_g": "3g",
       "fat_g": "2g"
     },
-    "allergens": []
+    "allergens": [],
+    "icon": "🌰"
   },
   {
     "product_id": "yogabar_greek_yogurt",
-    "name": "Greek Yogurt \u2013 Plain Unsweetened",
+    "name": "Greek Yogurt – Plain Unsweetened",
     "brand": "Yoga Bar",
     "blinkit_category": "Grocery & Kitchen",
     "blinkit_subcategory": "Dairy, Bread & Eggs",
     "price_inr": 89,
     "weight_or_pack": "200g",
-    "price_per_unit": "\u20B944.5/100g",
-    "goal_tags": ["healthy_snacking", "morning_energy"],
-    "filter_tags": ["high_protein", "low_sugar", "probiotic"],
-    "compare_tags": ["curd", "flavoured yogurt", "dahi"],
-    "benefits": ["2x protein vs regular curd", "Probiotic cultures", "No added sugar", "Gut friendly"],
-    "ingredients_highlights": ["Skimmed Milk", "Live Bacterial Cultures"],
+    "price_per_unit": "₹44.5/100g",
+    "goal_tags": [
+      "healthy_snacking",
+      "morning_energy"
+    ],
+    "filter_tags": [
+      "high_protein",
+      "low_sugar",
+      "probiotic"
+    ],
+    "compare_tags": [
+      "curd",
+      "flavoured yogurt",
+      "dahi"
+    ],
+    "benefits": [
+      "2x protein vs regular curd",
+      "Probiotic cultures",
+      "No added sugar",
+      "Gut friendly"
+    ],
+    "ingredients_highlights": [
+      "Skimmed Milk",
+      "Live Bacterial Cultures"
+    ],
     "nutrition_per_serving": {
       "calories": "90 kcal",
       "protein_g": "10g",
@@ -69,22 +135,49 @@
       "fibre_g": "0g",
       "fat_g": "2g"
     },
-    "allergens": ["Milk", "Dairy"]
+    "allergens": [
+      "Milk",
+      "Dairy"
+    ],
+    "icon": "🥛"
   },
   {
     "product_id": "yogabar_muesli",
-    "name": "High Protein Muesli \u2013 No Added Sugar",
+    "name": "High Protein Muesli – No Added Sugar",
     "brand": "Yoga Bar",
     "blinkit_category": "Grocery & Kitchen",
     "blinkit_subcategory": "Dry Fruits & Cereals",
     "price_inr": 297,
     "weight_or_pack": "700g",
-    "price_per_unit": "\u20B942/100g",
-    "goal_tags": ["healthy_snacking", "morning_energy"],
-    "filter_tags": ["high_protein", "low_sugar", "high_fibre", "no_maida"],
-    "compare_tags": ["corn flakes", "oats", "breakfast cereal"],
-    "benefits": ["20g protein per 100g", "No refined sugar", "Whole grain oats", "Contains nuts and seeds"],
-    "ingredients_highlights": ["Rolled Oats", "Almonds", "Pumpkin Seeds", "Whey Protein", "No artificial sweetener"],
+    "price_per_unit": "₹42/100g",
+    "goal_tags": [
+      "healthy_snacking",
+      "morning_energy"
+    ],
+    "filter_tags": [
+      "high_protein",
+      "low_sugar",
+      "high_fibre",
+      "no_maida"
+    ],
+    "compare_tags": [
+      "corn flakes",
+      "oats",
+      "breakfast cereal"
+    ],
+    "benefits": [
+      "20g protein per 100g",
+      "No refined sugar",
+      "Whole grain oats",
+      "Contains nuts and seeds"
+    ],
+    "ingredients_highlights": [
+      "Rolled Oats",
+      "Almonds",
+      "Pumpkin Seeds",
+      "Whey Protein",
+      "No artificial sweetener"
+    ],
     "nutrition_per_serving": {
       "calories": "355 kcal",
       "protein_g": "20g",
@@ -93,22 +186,46 @@
       "fibre_g": "7g",
       "fat_g": "8g"
     },
-    "allergens": ["Milk", "Nuts", "Gluten"]
+    "allergens": [
+      "Milk",
+      "Nuts",
+      "Gluten"
+    ],
+    "icon": "🥣"
   },
   {
     "product_id": "epigamia_almond_yogurt",
-    "name": "Almond Milk Yogurt \u2013 Vanilla",
+    "name": "Almond Milk Yogurt – Vanilla",
     "brand": "Epigamia",
     "blinkit_category": "Grocery & Kitchen",
     "blinkit_subcategory": "Dairy, Bread & Eggs",
     "price_inr": 75,
     "weight_or_pack": "90g",
-    "price_per_unit": "\u20B983/100g",
-    "goal_tags": ["healthy_snacking"],
-    "filter_tags": ["low_sugar", "no_maida", "plant_based"],
-    "compare_tags": ["flavoured yogurt", "dessert", "sweet snack"],
-    "benefits": ["Plant-based", "No cholesterol", "Lower calorie sweet option", "Probiotic"],
-    "ingredients_highlights": ["Almond Milk", "Live Cultures", "Natural Vanilla Extract"],
+    "price_per_unit": "₹83/100g",
+    "goal_tags": [
+      "healthy_snacking"
+    ],
+    "filter_tags": [
+      "low_sugar",
+      "no_maida",
+      "plant_based"
+    ],
+    "compare_tags": [
+      "flavoured yogurt",
+      "dessert",
+      "sweet snack"
+    ],
+    "benefits": [
+      "Plant-based",
+      "No cholesterol",
+      "Lower calorie sweet option",
+      "Probiotic"
+    ],
+    "ingredients_highlights": [
+      "Almond Milk",
+      "Live Cultures",
+      "Natural Vanilla Extract"
+    ],
     "nutrition_per_serving": {
       "calories": "70 kcal",
       "protein_g": "1.5g",
@@ -117,7 +234,10 @@
       "fibre_g": "1g",
       "fat_g": "2g"
     },
-    "allergens": ["Tree Nuts (Almonds)"]
+    "allergens": [
+      "Tree Nuts (Almonds)"
+    ],
+    "icon": "🍮"
   },
   {
     "product_id": "minimalist_vitc_serum",
@@ -127,19 +247,44 @@
     "blinkit_subcategory": "Skin & Face",
     "price_inr": 599,
     "weight_or_pack": "30ml",
-    "price_per_unit": "\u20B91997/100ml",
-    "goal_tags": ["better_skin"],
-    "filter_tags": ["no_paraben", "fragrance_free", "vitamin_c", "dermatologist_tested"],
-    "compare_tags": ["face serum", "brightening serum", "glow serum"],
-    "benefits": ["Brightens skin tone", "Reduces pigmentation", "Antioxidant protection", "Improves texture"],
-    "key_active_ingredients": ["Vitamin C (Ascorbyl Glucoside) 10%", "Acetyl Glucosamine 1%"],
-    "ingredients_highlights": ["No fragrance", "No paraben", "No alcohol", "Minimal formulation"],
+    "price_per_unit": "₹1997/100ml",
+    "goal_tags": [
+      "better_skin"
+    ],
+    "filter_tags": [
+      "no_paraben",
+      "fragrance_free",
+      "vitamin_c",
+      "dermatologist_tested"
+    ],
+    "compare_tags": [
+      "face serum",
+      "brightening serum",
+      "glow serum"
+    ],
+    "benefits": [
+      "Brightens skin tone",
+      "Reduces pigmentation",
+      "Antioxidant protection",
+      "Improves texture"
+    ],
+    "key_active_ingredients": [
+      "Vitamin C (Ascorbyl Glucoside) 10%",
+      "Acetyl Glucosamine 1%"
+    ],
+    "ingredients_highlights": [
+      "No fragrance",
+      "No paraben",
+      "No alcohol",
+      "Minimal formulation"
+    ],
     "allergens": [],
     "skin_type_suitability": "All skin types including sensitive",
     "paraben_free": true,
     "fragrance_free": true,
     "dermatologist_tested": true,
-    "moisturization_level": "Light \u2014 serum base, not moisturising on its own"
+    "moisturization_level": "Light — serum base, not moisturising on its own",
+    "icon": "✨"
   },
   {
     "product_id": "cetaphil_moisturising_cream",
@@ -149,34 +294,79 @@
     "blinkit_subcategory": "Skin & Face",
     "price_inr": 349,
     "weight_or_pack": "80g",
-    "price_per_unit": "\u20B9436/100g",
-    "goal_tags": ["better_skin"],
-    "filter_tags": ["no_paraben", "fragrance_free", "dermatologist_tested"],
-    "compare_tags": ["face cream", "moisturiser", "lotion"],
-    "benefits": ["Long-lasting hydration", "Gentle on sensitive skin", "Repairs skin barrier", "Non-comedogenic"],
-    "key_active_ingredients": ["Glycerin", "Panthenol", "Niacinamide"],
-    "ingredients_highlights": ["No fragrance", "No paraben", "Hypoallergenic"],
+    "price_per_unit": "₹436/100g",
+    "goal_tags": [
+      "better_skin"
+    ],
+    "filter_tags": [
+      "no_paraben",
+      "fragrance_free",
+      "dermatologist_tested"
+    ],
+    "compare_tags": [
+      "face cream",
+      "moisturiser",
+      "lotion"
+    ],
+    "benefits": [
+      "Long-lasting hydration",
+      "Gentle on sensitive skin",
+      "Repairs skin barrier",
+      "Non-comedogenic"
+    ],
+    "key_active_ingredients": [
+      "Glycerin",
+      "Panthenol",
+      "Niacinamide"
+    ],
+    "ingredients_highlights": [
+      "No fragrance",
+      "No paraben",
+      "Hypoallergenic"
+    ],
     "allergens": [],
     "skin_type_suitability": "Dry, Normal, Sensitive",
     "paraben_free": true,
     "fragrance_free": true,
     "dermatologist_tested": true,
-    "moisturization_level": "High \u2014 rich cream, suitable for dry skin"
+    "moisturization_level": "High — rich cream, suitable for dry skin",
+    "icon": "🧴"
   },
   {
     "product_id": "soulfull_ragi_crackers",
-    "name": "Ragi Crackers \u2013 Pepper & Herbs",
+    "name": "Ragi Crackers – Pepper & Herbs",
     "brand": "Soulfull",
     "blinkit_category": "Snacks & Drinks",
     "blinkit_subcategory": "Chips & Namkeen",
     "price_inr": 55,
     "weight_or_pack": "150g",
-    "price_per_unit": "\u20B937/100g",
-    "goal_tags": ["better_skin", "healthy_snacking"],
-    "filter_tags": ["no_maida", "high_fibre", "no_paraben"],
-    "compare_tags": ["biscuits", "crackers", "snacks for skin"],
-    "benefits": ["Ragi is rich in calcium and antioxidants", "Supports skin health from within", "No refined flour", "High fibre aids digestion which reflects on skin"],
-    "ingredients_highlights": ["Finger Millet (Ragi)", "Whole Wheat", "No maida", "No artificial flavours"],
+    "price_per_unit": "₹37/100g",
+    "goal_tags": [
+      "better_skin",
+      "healthy_snacking"
+    ],
+    "filter_tags": [
+      "no_maida",
+      "high_fibre",
+      "no_paraben"
+    ],
+    "compare_tags": [
+      "biscuits",
+      "crackers",
+      "snacks for skin"
+    ],
+    "benefits": [
+      "Ragi is rich in calcium and antioxidants",
+      "Supports skin health from within",
+      "No refined flour",
+      "High fibre aids digestion which reflects on skin"
+    ],
+    "ingredients_highlights": [
+      "Finger Millet (Ragi)",
+      "Whole Wheat",
+      "No maida",
+      "No artificial flavours"
+    ],
     "nutrition_per_serving": {
       "calories": "130 kcal",
       "protein_g": "3g",
@@ -185,7 +375,11 @@
       "fibre_g": "4g",
       "fat_g": "4g"
     },
-    "allergens": ["Wheat", "Gluten"]
+    "allergens": [
+      "Wheat",
+      "Gluten"
+    ],
+    "icon": "🌾"
   },
   {
     "product_id": "raw_pressery_amla",
@@ -195,14 +389,37 @@
     "blinkit_subcategory": "Drinks & Juices",
     "price_inr": 150,
     "weight_or_pack": "250ml",
-    "price_per_unit": "\u20B960/100ml",
-    "goal_tags": ["better_skin"],
-    "filter_tags": ["vitamin_c", "no_paraben", "fragrance_free"],
-    "compare_tags": ["fruit juice", "health drink", "vitamin c drink"],
-    "benefits": ["Extremely high Vitamin C content", "Boosts collagen production", "Antioxidant rich", "Supports skin glow from within"],
-    "key_active_ingredients": ["Amla (Indian Gooseberry)", "Natural Vitamin C"],
-    "ingredients_highlights": ["Cold pressed \u2014 no heat treatment", "No preservatives", "No added sugar"],
-    "allergens": []
+    "price_per_unit": "₹60/100ml",
+    "goal_tags": [
+      "better_skin"
+    ],
+    "filter_tags": [
+      "vitamin_c",
+      "no_paraben",
+      "fragrance_free"
+    ],
+    "compare_tags": [
+      "fruit juice",
+      "health drink",
+      "vitamin c drink"
+    ],
+    "benefits": [
+      "Extremely high Vitamin C content",
+      "Boosts collagen production",
+      "Antioxidant rich",
+      "Supports skin glow from within"
+    ],
+    "key_active_ingredients": [
+      "Amla (Indian Gooseberry)",
+      "Natural Vitamin C"
+    ],
+    "ingredients_highlights": [
+      "Cold pressed — no heat treatment",
+      "No preservatives",
+      "No added sugar"
+    ],
+    "allergens": [],
+    "icon": "🍹"
   },
   {
     "product_id": "minimalist_spf50",
@@ -212,34 +429,78 @@
     "blinkit_subcategory": "Skin & Face",
     "price_inr": 319,
     "weight_or_pack": "50ml",
-    "price_per_unit": "\u20B9638/100ml",
-    "goal_tags": ["better_skin"],
-    "filter_tags": ["no_paraben", "fragrance_free", "dermatologist_tested"],
-    "compare_tags": ["sunscreen", "SPF cream", "sun protection"],
-    "benefits": ["Broad spectrum UVA + UVB protection", "Prevents pigmentation from sun", "Hydrates skin with Hyaluronic Acid", "No white cast"],
-    "key_active_ingredients": ["Ethylhexyl Methoxycinnamate", "Hyaluronic Acid", "Niacinamide"],
-    "ingredients_highlights": ["No fragrance", "No paraben", "Lightweight formula"],
+    "price_per_unit": "₹638/100ml",
+    "goal_tags": [
+      "better_skin"
+    ],
+    "filter_tags": [
+      "no_paraben",
+      "fragrance_free",
+      "dermatologist_tested"
+    ],
+    "compare_tags": [
+      "sunscreen",
+      "SPF cream",
+      "sun protection"
+    ],
+    "benefits": [
+      "Broad spectrum UVA + UVB protection",
+      "Prevents pigmentation from sun",
+      "Hydrates skin with Hyaluronic Acid",
+      "No white cast"
+    ],
+    "key_active_ingredients": [
+      "Ethylhexyl Methoxycinnamate",
+      "Hyaluronic Acid",
+      "Niacinamide"
+    ],
+    "ingredients_highlights": [
+      "No fragrance",
+      "No paraben",
+      "Lightweight formula"
+    ],
     "allergens": [],
     "skin_type_suitability": "All skin types",
     "paraben_free": true,
     "fragrance_free": true,
     "dermatologist_tested": true,
-    "moisturization_level": "Moderate \u2014 hydrating but not heavy"
+    "moisturization_level": "Moderate — hydrating but not heavy",
+    "icon": "🌿"
   },
   {
     "product_id": "ritebite_max_protein_bar",
-    "name": "Max Protein Bar \u2013 Choco Slim",
+    "name": "Max Protein Bar – Choco Slim",
     "brand": "RiteBite",
     "blinkit_category": "Snacks & Drinks",
     "blinkit_subcategory": "Chips & Namkeen",
     "price_inr": 85,
     "weight_or_pack": "67g",
-    "price_per_unit": "\u20B9127/100g",
-    "goal_tags": ["healthy_snacking"],
-    "filter_tags": ["high_protein", "low_sugar", "no_maida"],
-    "compare_tags": ["protein bar", "energy bar", "nutrition bar"],
-    "benefits": ["20g protein per bar", "Low glycaemic index", "No refined sugar", "Satiating between meals"],
-    "ingredients_highlights": ["Whey Protein Isolate", "Dark Chocolate Coating", "Oats", "No artificial sweetener"],
+    "price_per_unit": "₹127/100g",
+    "goal_tags": [
+      "healthy_snacking"
+    ],
+    "filter_tags": [
+      "high_protein",
+      "low_sugar",
+      "no_maida"
+    ],
+    "compare_tags": [
+      "protein bar",
+      "energy bar",
+      "nutrition bar"
+    ],
+    "benefits": [
+      "20g protein per bar",
+      "Low glycaemic index",
+      "No refined sugar",
+      "Satiating between meals"
+    ],
+    "ingredients_highlights": [
+      "Whey Protein Isolate",
+      "Dark Chocolate Coating",
+      "Oats",
+      "No artificial sweetener"
+    ],
     "nutrition_per_serving": {
       "calories": "215 kcal",
       "protein_g": "20g",
@@ -248,7 +509,12 @@
       "fibre_g": "2g",
       "fat_g": "6g"
     },
-    "allergens": ["Milk", "Nuts", "Gluten"]
+    "allergens": [
+      "Milk",
+      "Nuts",
+      "Gluten"
+    ],
+    "icon": "🍫"
   },
   {
     "product_id": "happilo_premium_almonds",
@@ -258,17 +524,31 @@
     "blinkit_subcategory": "Dry Fruits & Cereals",
     "price_inr": 199,
     "weight_or_pack": "200g",
-    "price_per_unit": "\u20B999.5/100g",
-    "goal_tags": ["better_skin"],
-    "filter_tags": ["no_paraben", "fragrance_free"],
-    "compare_tags": ["nuts", "dry fruits", "almonds", "skin superfood"],
+    "price_per_unit": "₹99.5/100g",
+    "goal_tags": [
+      "better_skin"
+    ],
+    "filter_tags": [
+      "no_paraben",
+      "fragrance_free"
+    ],
+    "compare_tags": [
+      "nuts",
+      "dry fruits",
+      "almonds",
+      "skin superfood"
+    ],
     "benefits": [
-      "Rich in Vitamin E \u2013 a key antioxidant for skin repair",
+      "Rich in Vitamin E – a key antioxidant for skin repair",
       "Supports collagen production and skin elasticity",
       "Natural source of healthy fats that keep skin moisturised",
       "Anti-inflammatory properties reduce redness and breakouts"
     ],
-    "key_active_ingredients": ["Vitamin E", "Healthy Monounsaturated Fats", "Magnesium"],
+    "key_active_ingredients": [
+      "Vitamin E",
+      "Healthy Monounsaturated Fats",
+      "Magnesium"
+    ],
     "ingredients_highlights": [
       "100% natural Californian almonds",
       "No added salt or oil",
@@ -282,25 +562,38 @@
       "fibre_g": "3g",
       "fat_g": "15g"
     },
-    "allergens": ["Tree Nuts (Almonds)"],
-    "skin_type_suitability": "All skin types \u2014 works from inside out via nutrition",
+    "allergens": [
+      "Tree Nuts (Almonds)"
+    ],
+    "skin_type_suitability": "All skin types — works from inside out via nutrition",
     "paraben_free": true,
     "fragrance_free": true,
     "dermatologist_tested": false,
-    "moisturization_level": "N/A \u2014 dietary product, not topical"
+    "moisturization_level": "N/A — dietary product, not topical",
+    "icon": "🥜"
   },
   {
     "product_id": "muscleblaze_whey_protein",
-    "name": "Whey Protein \u2013 Raw Chocolate",
+    "name": "Whey Protein – Raw Chocolate",
     "brand": "MuscleBlaze",
     "blinkit_category": "Beauty & Personal Care",
     "blinkit_subcategory": "Health & Pharma",
     "price_inr": 299,
     "weight_or_pack": "250g (10 servings)",
-    "price_per_unit": "\u20B929.9/serving",
-    "goal_tags": ["healthy_snacking"],
-    "filter_tags": ["high_protein", "low_sugar", "no_maida"],
-    "compare_tags": ["protein shake", "whey protein", "meal replacement"],
+    "price_per_unit": "₹29.9/serving",
+    "goal_tags": [
+      "healthy_snacking"
+    ],
+    "filter_tags": [
+      "high_protein",
+      "low_sugar",
+      "no_maida"
+    ],
+    "compare_tags": [
+      "protein shake",
+      "whey protein",
+      "meal replacement"
+    ],
     "benefits": [
       "25g protein per serving",
       "Low in sugar",
@@ -321,6 +614,10 @@
       "fibre_g": "0g",
       "fat_g": "1.5g"
     },
-    "allergens": ["Milk", "Gluten"]
+    "allergens": [
+      "Milk",
+      "Gluten"
+    ],
+    "icon": "💪"
   }
 ]

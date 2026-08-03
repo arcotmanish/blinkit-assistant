@@ -7,11 +7,14 @@ import FilterRow from '@/components/FilterRow';
 import ShopByCategory from '@/components/ShopByCategory';
 import FrequentlyOrdered from '@/components/FrequentlyOrdered';
 import BottomNav from '@/components/BottomNav';
+import RecommendationsView from '@/components/RecommendationsView';
 
 export default function Home() {
   const [isAiMode, setIsAiMode] = useState(false);
   const [query, setQuery] = useState('');
   const [detectedGoal, setDetectedGoal] = useState<{ id: string; label: string } | null>(null);
+  const [isLoadingRecommendations, setIsLoadingRecommendations] = useState(false);
+  const [recommendations, setRecommendations] = useState<any[]>([]);
 
   const handleToggleAiMode = (checked: boolean) => {
     setIsAiMode(checked);
@@ -19,21 +22,55 @@ export default function Home() {
     if (!checked) {
       setQuery('');
       setDetectedGoal(null);
+      setRecommendations([]);
     }
   };
 
   const handleGoalDetected = (goalId: string, goalLabel: string) => {
     setDetectedGoal({ id: goalId, label: goalLabel });
+    setRecommendations([]);
   };
 
-  const handleFiltersSubmit = (selectedFilters: string[], freeText: string) => {
-    console.log("--- Find Products Clicked ---");
-    console.log("Goal ID:", detectedGoal?.id);
-    console.log("Goal Label:", detectedGoal?.label);
-    console.log("Selected Filters:", selectedFilters);
-    console.log("Free Text Preference:", freeText);
+  const handleFiltersSubmit = async (selectedFilters: string[], freeText: string) => {
+    if (!detectedGoal) return;
     
-    // In Phase 7, this will trigger the recommendation API fetch and render the cards
+    setIsLoadingRecommendations(true);
+    setRecommendations([]);
+    
+    try {
+      // 1. Fetch Candidates
+      const candidatesRes = await fetch('/api/get-candidates', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ goal_id: detectedGoal.id, filters: selectedFilters })
+      });
+      const candidatesData = await candidatesRes.json();
+      
+      if (!candidatesData.candidates || candidatesData.candidates.length === 0) {
+        alert('No products found for these filters.');
+        setIsLoadingRecommendations(false);
+        return;
+      }
+      
+      // 2. Fetch Recommendations
+      const recommendRes = await fetch('/api/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          candidates: candidatesData.candidates,
+          goal_label: detectedGoal.label,
+          free_text_preference: freeText
+        })
+      });
+      const recommendData = await recommendRes.json();
+      
+      setRecommendations(recommendData.recommendations || []);
+    } catch (error) {
+      console.error("Error fetching recommendations:", error);
+      alert("Failed to get recommendations.");
+    } finally {
+      setIsLoadingRecommendations(false);
+    }
   };
 
   const showStandardContent = !(isAiMode && detectedGoal);
@@ -76,12 +113,29 @@ export default function Home() {
           query={query}
           setQuery={setQuery}
           onGoalDetected={handleGoalDetected} 
+          placeholder={(recommendations.length > 0 || isLoadingRecommendations) ? 'Change goal...' : undefined}
         />
 
-        {isAiMode && detectedGoal && (
+        {isAiMode && detectedGoal && recommendations.length === 0 && !isLoadingRecommendations && (
           <FilterRow 
             goalId={detectedGoal.id} 
             onSubmitFilters={handleFiltersSubmit} 
+          />
+        )}
+        
+        {isLoadingRecommendations && (
+          <div style={{ padding: '40px 0', textAlign: 'center', color: 'var(--color-primary)', fontWeight: 600 }}>
+            <div style={{ display: 'inline-block', animation: 'spin 1s linear infinite', marginBottom: '12px', fontSize: '24px' }}>
+              ⚡
+            </div>
+            <div>Finding the best products for you...</div>
+          </div>
+        )}
+
+        {recommendations.length > 0 && (
+          <RecommendationsView 
+            goalLabel={detectedGoal!.label}
+            recommendations={recommendations}
           />
         )}
         

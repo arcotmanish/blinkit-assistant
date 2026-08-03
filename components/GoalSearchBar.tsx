@@ -5,9 +5,10 @@ interface GoalSearchBarProps {
   query: string;
   setQuery: (val: string) => void;
   onGoalDetected: (goalId: string, goalLabel: string) => void;
+  placeholder?: string;
 }
 
-export default function GoalSearchBar({ isAiMode, query, setQuery, onGoalDetected }: GoalSearchBarProps) {
+export default function GoalSearchBar({ isAiMode, query, setQuery, onGoalDetected, placeholder }: GoalSearchBarProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -47,7 +48,7 @@ export default function GoalSearchBar({ isAiMode, query, setQuery, onGoalDetecte
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder={isAiMode ? "Tell us your personal goal…" : "Search for Atta, Daal, Eggs…"}
+          placeholder={!isAiMode ? "Search for Atta, Daal, Eggs…" : (placeholder || "Tell us your personal goal…")}
           disabled={!isAiMode || isLoading}
           style={{
             width: '100%',
