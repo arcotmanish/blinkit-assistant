@@ -7,9 +7,9 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { products, goal_label, free_text_preference } = body;
 
-    if (!products || !Array.isArray(products) || products.length !== 3 || !goal_label) {
+    if (!products || !Array.isArray(products) || products.length !== 2 || !goal_label) {
       return NextResponse.json(
-        { error: "Invalid request payload. Must provide exactly 3 products and a goal_label." },
+        { error: "Invalid request payload. Must provide exactly 2 products and a goal_label." },
         { status: 400 }
       );
     }

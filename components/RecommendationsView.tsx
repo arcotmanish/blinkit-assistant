@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import RecommendationCard from './RecommendationCard';
+import CompareBottomSheet from './CompareBottomSheet';
+import ComparisonTable from './ComparisonTable';
 
 interface RecommendationsViewProps {
   goalLabel: string;
@@ -9,6 +11,11 @@ interface RecommendationsViewProps {
 export default function RecommendationsView({ goalLabel, recommendations }: RecommendationsViewProps) {
   const [cart, setCart] = useState<Record<string, number>>({});
   const [openWhyThisId, setOpenWhyThisId] = useState<string | null>(null);
+  
+  const [isCompareSheetOpen, setIsCompareSheetOpen] = useState(false);
+  const [isComparing, setIsComparing] = useState(false);
+  const [compareResult, setCompareResult] = useState<any>(null);
+  const [comparedProducts, setComparedProducts] = useState<any[]>([]);
 
   const handleAdd = (productId: string) => {
     setCart(prev => ({ ...prev, [productId]: 1 }));
@@ -27,7 +34,39 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
   };
 
   const handleToggleWhyThis = (productId: string) => {
+    setCompareResult(null); // hide comparison if opening why this
     setOpenWhyThisId(prev => prev === productId ? null : productId);
+  };
+
+  const handleOpenCompare = () => {
+    setOpenWhyThisId(null);
+    setCompareResult(null);
+    setIsCompareSheetOpen(true);
+  };
+
+  const handleCompare = async (products: any[]) => {
+    setIsCompareSheetOpen(false);
+    setComparedProducts(products);
+    setIsComparing(true);
+    
+    try {
+      const res = await fetch('/api/compare', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          products: products,
+          goal_label: goalLabel,
+          free_text_preference: ''
+        })
+      });
+      const data = await res.json();
+      setCompareResult(data);
+    } catch (err) {
+      console.error(err);
+      alert('Failed to compare products');
+    } finally {
+      setIsComparing(false);
+    }
   };
 
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
@@ -66,8 +105,27 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
         ))}
       </div>
       
+      {/* Comparison Loading State */}
+      {isComparing && (
+        <div style={{ padding: '32px 0', textAlign: 'center', color: 'var(--color-primary)' }}>
+          <div style={{ display: 'inline-block', animation: 'spin 1s linear infinite', marginBottom: '12px', fontSize: '24px' }}>
+            ⚖️
+          </div>
+          <div style={{ fontSize: '14px', fontWeight: 600 }}>Analyzing products...</div>
+        </div>
+      )}
+
+      {/* Comparison Table */}
+      {compareResult && !isComparing && (
+        <ComparisonTable 
+          compareResult={compareResult}
+          products={comparedProducts}
+          onClose={() => setCompareResult(null)}
+        />
+      )}
+
       {/* Why This Expanded Box */}
-      {openProduct && (
+      {openProduct && !compareResult && !isComparing && (
         <div style={{
           backgroundColor: '#1c1c1c',
           borderRadius: '16px',
@@ -114,7 +172,9 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
         gap: '12px',
         zIndex: 40
       }}>
-        <button style={{
+        <button 
+          onClick={handleOpenCompare}
+          style={{
           backgroundColor: 'var(--color-amber)',
           color: '#000',
           borderRadius: '12px',
@@ -159,6 +219,13 @@ export default function RecommendationsView({ goalLabel, recommendations }: Reco
           </svg>
         </button>
       </div>
+
+      <CompareBottomSheet 
+        isOpen={isCompareSheetOpen}
+        onClose={() => setIsCompareSheetOpen(false)}
+        recommendations={recommendations}
+        onCompare={handleCompare}
+      />
     </div>
   );
 }
