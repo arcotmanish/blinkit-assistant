@@ -630,5 +630,51 @@
       "Gluten"
     ],
     "icon": "💪"
+  },
+  {
+    "product_id": "dot_and_key_vitamin_c_moisturiser",
+    "name": "Vitamin C & E Moisturiser with Hyaluronic Acid",
+    "brand": "Dot & Key",
+    "blinkit_category": "Beauty & Personal Care",
+    "blinkit_subcategory": "Skin & Face",
+    "price_inr": 445,
+    "weight_or_pack": "60ml",
+    "price_per_unit": "₹445/60ml",
+    "goal_tags": ["better_skin"],
+    "filter_tags": [
+      "no_paraben",
+      "fragrance_free",
+      "vitamin_c",
+      "dermatologist_tested"
+    ],
+    "compare_tags": [
+      "moisturiser",
+      "vitamin c cream",
+      "glow cream"
+    ],
+    "benefits": [
+      "Brightens and evens skin tone",
+      "Deep hydration with Hyaluronic Acid",
+      "Vitamin E repairs skin barrier",
+      "Lightweight non-greasy finish"
+    ],
+    "key_active_ingredients": [
+      "Vitamin C (Ascorbic Acid)",
+      "Vitamin E (Tocopherol)",
+      "Hyaluronic Acid"
+    ],
+    "ingredients_highlights": [
+      "No paraben",
+      "No fragrance",
+      "Non-comedogenic",
+      "Vegan formula"
+    ],
+    "allergens": [],
+    "skin_type_suitability": "Normal, Oily, Combination",
+    "paraben_free": true,
+    "fragrance_free": true,
+    "dermatologist_tested": true,
+    "moisturization_level": "Moderate — hydrating and brightening combined",
+    "icon": "🍊"
   }
 ]
