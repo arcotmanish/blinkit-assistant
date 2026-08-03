@@ -29,6 +29,15 @@ export default function CompareBottomSheet({
     }
   }, [isOpen]);
 
+  // Reset Option 4 if it gets deselected (manually or by 3rd selection shift)
+  useEffect(() => {
+    if (option4Product && !selectedIds.includes(option4Product.product_id)) {
+      setOption4Product(null);
+      setSearchQuery('');
+      setIsSearching(false);
+    }
+  }, [selectedIds, option4Product]);
+
   if (!isOpen) return null;
 
   const handleSelect = (productId: string) => {
