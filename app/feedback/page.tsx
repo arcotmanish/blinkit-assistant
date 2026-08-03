@@ -20,7 +20,7 @@ function FeedbackContent() {
   const [goalId, setGoalId] = useState<string>('');
   
   // Track selected reason and free text per product
-  const [selectedReasons, setSelectedReasons] = useState<Record<string, string>>({});
+  const [selectedReasons, setSelectedReasons] = useState<Record<string, string[]>>({});
   const [freeTexts, setFreeTexts] = useState<Record<string, string>>({});
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,10 +54,20 @@ function FeedbackContent() {
   }, [searchParams]);
 
   const handleSelectReason = (productId: string, reason: string) => {
-    setSelectedReasons(prev => ({
-      ...prev,
-      [productId]: reason
-    }));
+    setSelectedReasons(prev => {
+      const current = prev[productId] || [];
+      if (current.includes(reason)) {
+        return {
+          ...prev,
+          [productId]: current.filter(r => r !== reason)
+        };
+      } else {
+        return {
+          ...prev,
+          [productId]: [...current, reason]
+        };
+      }
+    });
   };
 
   const handleTextChange = (productId: string, text: string) => {
@@ -71,13 +81,15 @@ function FeedbackContent() {
     setIsSubmitting(true);
     
     // Only submit feedback for products where a reason was selected
-    const submissions = Object.entries(selectedReasons).map(([productId, reason]) => {
+    const submissions = Object.entries(selectedReasons)
+      .filter(([productId, reasons]) => reasons.length > 0)
+      .map(([productId, reasons]) => {
       return fetch('/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           product_id: productId,
-          reason,
+          reason: reasons,
           free_text: freeTexts[productId] || '',
           goal_id: goalId,
           timestamp: new Date().toISOString()
@@ -166,7 +178,7 @@ function FeedbackContent() {
               
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {REASONS.map(reason => {
-                  const isSelected = selectedReasons[product.product_id] === reason;
+                  const isSelected = selectedReasons[product.product_id]?.includes(reason);
                   return (
                     <button
                       key={reason}
@@ -228,7 +240,7 @@ function FeedbackContent() {
       }}>
         <button 
           onClick={handleSubmit}
-          disabled={Object.keys(selectedReasons).length === 0 || isSubmitting}
+          disabled={!Object.values(selectedReasons).some(reasons => reasons.length > 0) || isSubmitting}
           style={{
             backgroundColor: 'var(--color-primary)',
             color: '#000',
@@ -241,8 +253,8 @@ function FeedbackContent() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            cursor: (Object.keys(selectedReasons).length === 0 || isSubmitting) ? 'not-allowed' : 'pointer',
-            opacity: (Object.keys(selectedReasons).length === 0 || isSubmitting) ? 0.5 : 1
+            cursor: (!Object.values(selectedReasons).some(reasons => reasons.length > 0) || isSubmitting) ? 'not-allowed' : 'pointer',
+            opacity: (!Object.values(selectedReasons).some(reasons => reasons.length > 0) || isSubmitting) ? 0.5 : 1
           }}
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}
