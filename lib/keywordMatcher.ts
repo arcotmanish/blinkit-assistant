@@ -6,7 +6,8 @@ const BETTER_SKIN_KEYWORDS = [
   "fairness", "brightening", "hydration", "radiant", "blemish", "pigmentation",
   "vitamin c", "spf", "sunscreen", "toner", "cleanse", "cleanser", "dermatologist",
   "beauty", "skinroutine", "skin routine", "nourish skin", "clear skin",
-  "improve", "improve my skin", "improving"
+  "improve", "improve my skin", "improving", "breakout", "breaking out", "rough", 
+  "oily", "glow up", "dull face", "face feels", "skin feels", "moisturize", "dark spots", "uneven skin"
 ];
 
 const HEALTHY_SNACKING_KEYWORDS = [
@@ -14,12 +15,14 @@ const HEALTHY_SNACKING_KEYWORDS = [
   "hunger", "bite", "bites", "treat", "treats", "junk", "guilt", "low calorie", "calorie",
   "protein", "fibre", "fiber", "diet", "weight", "healthy", "health", "nutritious",
   "nutrition", "wholesome", "light food", "light eating", "grain", "nuts", "seeds",
-  "chips", "crackers", "biscuit", "bar", "granola", "muesli", "yogurt", "curd"
+  "chips", "crackers", "biscuit", "bar", "granola", "muesli", "yogurt", "curd",
+  "munch", "binge", "cravings", "diet snack", "guilt free", "clean eating", "between meals", "mid meal"
 ];
 
 const MORNING_ENERGY_KEYWORDS = [
   "morning", "energy", "breakfast", "fuel", "wake up", "boost", "fatigue", "tired",
-  "afternoon slump", "lunch", "start the day", "coffee", "tea"
+  "afternoon slump", "lunch", "start the day", "coffee", "tea",
+  "sluggish", "start my day", "morning routine"
 ];
 
 export function detectGoal(userInput: string) {
